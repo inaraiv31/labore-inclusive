@@ -1,0 +1,1842 @@
+<!DOCTYPE html>
+<html lang="id"><head><meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>LABORÉ Inclusive Airless 250 ml &amp; 1000 ml (1 L) — Prototipe 3D Interaktif</title>
+    <!-- Tailwind CSS untuk UI Glassmorphism Ringkas -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Tipografi Dermo-Kosmetik Modern -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Plus+Jakarta+Sans:wght@300;400;600;700;800&amp;display=swap" rel="stylesheet">
+    <style>
+        * {
+            box-sizing: border-box;
+            -webkit-tap-highlight-color: transparent;
+        }
+        html, body {
+            width: 100vw;
+            height: 100vh;
+            height: 100dvh;
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+            font-family: 'Plus Jakarta Sans', 'Inter', sans-serif;
+            background: radial-gradient(circle at 50% 42%, #FFFFFF 0%, #FDF5F7 56%, #F8E0E6 100%);
+            color: #2D2427;
+            user-select: none;
+        }
+        #canvas-container {
+            position: fixed;
+            inset: 0;
+            width: 100vw;
+            height: 100vh;
+            height: 100dvh;
+            z-index: 1;
+            touch-action: none;
+            cursor: grab;
+        }
+        #canvas-container:active {
+            cursor: grabbing;
+        }
+        canvas {
+            display: block;
+            width: 100% !important;
+            height: 100% !important;
+        }
+        /* Glassmorphism Studio Rose-Ivory */
+        .studio-glass {
+            background: rgba(253, 245, 247, 0.88);
+            backdrop-filter: blur(14px);
+            -webkit-backdrop-filter: blur(14px);
+            border: 1px solid rgba(242, 145, 168, 0.48);
+            box-shadow: 0 10px 30px -8px rgba(180, 72, 102, 0.15);
+        }
+        /* Animasi gelombang audio QR */
+        @keyframes eqPulse {
+            0%, 100% { transform: scaleY(0.35); }
+            50% { transform: scaleY(1.25); }
+        }
+        .eq-bar {
+            animation: eqPulse 0.68s ease-in-out infinite;
+        }
+        .eq-bar:nth-child(2) { animation-delay: 0.15s; }
+        .eq-bar:nth-child(3) { animation-delay: 0.30s; }
+        .eq-bar:nth-child(4) { animation-delay: 0.45s; }
+    </style>
+<style>*, ::before, ::after{--tw-border-spacing-x:0;--tw-border-spacing-y:0;--tw-translate-x:0;--tw-translate-y:0;--tw-rotate:0;--tw-skew-x:0;--tw-skew-y:0;--tw-scale-x:1;--tw-scale-y:1;--tw-pan-x: ;--tw-pan-y: ;--tw-pinch-zoom: ;--tw-scroll-snap-strictness:proximity;--tw-gradient-from-position: ;--tw-gradient-via-position: ;--tw-gradient-to-position: ;--tw-ordinal: ;--tw-slashed-zero: ;--tw-numeric-figure: ;--tw-numeric-spacing: ;--tw-numeric-fraction: ;--tw-ring-inset: ;--tw-ring-offset-width:0px;--tw-ring-offset-color:#fff;--tw-ring-color:rgb(59 130 246 / 0.5);--tw-ring-offset-shadow:0 0 #0000;--tw-ring-shadow:0 0 #0000;--tw-shadow:0 0 #0000;--tw-shadow-colored:0 0 #0000;--tw-blur: ;--tw-brightness: ;--tw-contrast: ;--tw-grayscale: ;--tw-hue-rotate: ;--tw-invert: ;--tw-saturate: ;--tw-sepia: ;--tw-drop-shadow: ;--tw-backdrop-blur: ;--tw-backdrop-brightness: ;--tw-backdrop-contrast: ;--tw-backdrop-grayscale: ;--tw-backdrop-hue-rotate: ;--tw-backdrop-invert: ;--tw-backdrop-opacity: ;--tw-backdrop-saturate: ;--tw-backdrop-sepia: ;--tw-contain-size: ;--tw-contain-layout: ;--tw-contain-paint: ;--tw-contain-style: }::backdrop{--tw-border-spacing-x:0;--tw-border-spacing-y:0;--tw-translate-x:0;--tw-translate-y:0;--tw-rotate:0;--tw-skew-x:0;--tw-skew-y:0;--tw-scale-x:1;--tw-scale-y:1;--tw-pan-x: ;--tw-pan-y: ;--tw-pinch-zoom: ;--tw-scroll-snap-strictness:proximity;--tw-gradient-from-position: ;--tw-gradient-via-position: ;--tw-gradient-to-position: ;--tw-ordinal: ;--tw-slashed-zero: ;--tw-numeric-figure: ;--tw-numeric-spacing: ;--tw-numeric-fraction: ;--tw-ring-inset: ;--tw-ring-offset-width:0px;--tw-ring-offset-color:#fff;--tw-ring-color:rgb(59 130 246 / 0.5);--tw-ring-offset-shadow:0 0 #0000;--tw-ring-shadow:0 0 #0000;--tw-shadow:0 0 #0000;--tw-shadow-colored:0 0 #0000;--tw-blur: ;--tw-brightness: ;--tw-contrast: ;--tw-grayscale: ;--tw-hue-rotate: ;--tw-invert: ;--tw-saturate: ;--tw-sepia: ;--tw-drop-shadow: ;--tw-backdrop-blur: ;--tw-backdrop-brightness: ;--tw-backdrop-contrast: ;--tw-backdrop-grayscale: ;--tw-backdrop-hue-rotate: ;--tw-backdrop-invert: ;--tw-backdrop-opacity: ;--tw-backdrop-saturate: ;--tw-backdrop-sepia: ;--tw-contain-size: ;--tw-contain-layout: ;--tw-contain-paint: ;--tw-contain-style: }/* ! tailwindcss v3.4.17 | MIT License | https://tailwindcss.com */*,::after,::before{box-sizing:border-box;border-width:0;border-style:solid;border-color:#e5e7eb}::after,::before{--tw-content:''}:host,html{line-height:1.5;-webkit-text-size-adjust:100%;-moz-tab-size:4;tab-size:4;font-family:ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";font-feature-settings:normal;font-variation-settings:normal;-webkit-tap-highlight-color:transparent}body{margin:0;line-height:inherit}hr{height:0;color:inherit;border-top-width:1px}abbr:where([title]){-webkit-text-decoration:underline dotted;text-decoration:underline dotted}h1,h2,h3,h4,h5,h6{font-size:inherit;font-weight:inherit}a{color:inherit;text-decoration:inherit}b,strong{font-weight:bolder}code,kbd,pre,samp{font-family:ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;font-feature-settings:normal;font-variation-settings:normal;font-size:1em}small{font-size:80%}sub,sup{font-size:75%;line-height:0;position:relative;vertical-align:baseline}sub{bottom:-.25em}sup{top:-.5em}table{text-indent:0;border-color:inherit;border-collapse:collapse}button,input,optgroup,select,textarea{font-family:inherit;font-feature-settings:inherit;font-variation-settings:inherit;font-size:100%;font-weight:inherit;line-height:inherit;letter-spacing:inherit;color:inherit;margin:0;padding:0}button,select{text-transform:none}button,input:where([type=button]),input:where([type=reset]),input:where([type=submit]){-webkit-appearance:button;background-color:transparent;background-image:none}:-moz-focusring{outline:auto}:-moz-ui-invalid{box-shadow:none}progress{vertical-align:baseline}::-webkit-inner-spin-button,::-webkit-outer-spin-button{height:auto}[type=search]{-webkit-appearance:textfield;outline-offset:-2px}::-webkit-search-decoration{-webkit-appearance:none}::-webkit-file-upload-button{-webkit-appearance:button;font:inherit}summary{display:list-item}blockquote,dd,dl,figure,h1,h2,h3,h4,h5,h6,hr,p,pre{margin:0}fieldset{margin:0;padding:0}legend{padding:0}menu,ol,ul{list-style:none;margin:0;padding:0}dialog{padding:0}textarea{resize:vertical}input::placeholder,textarea::placeholder{opacity:1;color:#9ca3af}[role=button],button{cursor:pointer}:disabled{cursor:default}audio,canvas,embed,iframe,img,object,svg,video{display:block;vertical-align:middle}img,video{max-width:100%;height:auto}[hidden]:where(:not([hidden=until-found])){display:none}.pointer-events-none{pointer-events:none}.fixed{position:fixed}.inset-0{inset:0px}.bottom-24{bottom:6rem}.bottom-3\.5{bottom:0.875rem}.left-1\/2{left:50%}.left-3\.5{left:0.875rem}.right-3\.5{right:0.875rem}.top-20{top:5rem}.top-3\.5{top:0.875rem}.z-20{z-index:20}.z-30{z-index:30}.z-40{z-index:40}.z-50{z-index:50}.mx-auto{margin-left:auto;margin-right:auto}.mb-1{margin-bottom:0.25rem}.mb-1\.5{margin-bottom:0.375rem}.mb-3{margin-bottom:0.75rem}.mt-1\.5{margin-top:0.375rem}.mt-2{margin-top:0.5rem}.mt-2\.5{margin-top:0.625rem}.mt-4{margin-top:1rem}.flex{display:flex}.grid{display:grid}.hidden{display:none}.h-12{height:3rem}.h-2{height:0.5rem}.h-2\.5{height:0.625rem}.h-3{height:0.75rem}.h-3\.5{height:0.875rem}.h-7{height:1.75rem}.h-full{height:100%}.w-1{width:0.25rem}.w-12{width:3rem}.w-7{width:1.75rem}.w-\[274px\]{width:274px}.w-\[92vw\]{width:92vw}.w-\[96vw\]{width:96vw}.w-full{width:100%}.max-w-4xl{max-width:56rem}.max-w-\[205px\]{max-width:205px}.max-w-md{max-width:28rem}.max-w-xl{max-width:36rem}.-translate-x-1\/2{--tw-translate-x:-50%;transform:translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))}.-translate-y-3{--tw-translate-y:-0.75rem;transform:translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))}.cursor-pointer{cursor:pointer}.grid-cols-2{grid-template-columns:repeat(2, minmax(0, 1fr))}.flex-col{flex-direction:column}.flex-wrap{flex-wrap:wrap}.items-end{align-items:flex-end}.items-center{align-items:center}.justify-end{justify-content:flex-end}.justify-center{justify-content:center}.justify-between{justify-content:space-between}.gap-0\.5{gap:0.125rem}.gap-1{gap:0.25rem}.gap-1\.5{gap:0.375rem}.gap-2{gap:0.5rem}.overflow-hidden{overflow:hidden}.rounded{border-radius:0.25rem}.rounded-2xl{border-radius:1rem}.rounded-3xl{border-radius:1.5rem}.rounded-full{border-radius:9999px}.rounded-lg{border-radius:0.5rem}.rounded-xl{border-radius:0.75rem}.border{border-width:1px}.border-t{border-top-width:1px}.border-\[\#DB2187\]\/60{border-color:rgb(219 33 135 / 0.6)}.border-\[\#F291A8\]{--tw-border-opacity:1;border-color:rgb(242 145 168 / var(--tw-border-opacity, 1))}.border-\[\#F291A8\]\/35{border-color:rgb(242 145 168 / 0.35)}.border-\[\#F291A8\]\/45{border-color:rgb(242 145 168 / 0.45)}.border-\[\#F291A8\]\/60{border-color:rgb(242 145 168 / 0.6)}.border-\[\#F291A8\]\/70{border-color:rgb(242 145 168 / 0.7)}.bg-\[\#2D2427\]{--tw-bg-opacity:1;background-color:rgb(45 36 39 / var(--tw-bg-opacity, 1))}.bg-\[\#2D2427\]\/95{background-color:rgb(45 36 39 / 0.95)}.bg-\[\#DB2187\]{--tw-bg-opacity:1;background-color:rgb(219 33 135 / var(--tw-bg-opacity, 1))}.bg-\[\#F291A8\]{--tw-bg-opacity:1;background-color:rgb(242 145 168 / var(--tw-bg-opacity, 1))}.bg-\[\#F291A8\]\/20{background-color:rgb(242 145 168 / 0.2)}.bg-\[\#FDF5F7\]\/95{background-color:rgb(253 245 247 / 0.95)}.bg-emerald-100{--tw-bg-opacity:1;background-color:rgb(209 250 229 / var(--tw-bg-opacity, 1))}.bg-white{--tw-bg-opacity:1;background-color:rgb(255 255 255 / var(--tw-bg-opacity, 1))}.bg-white\/85{background-color:rgb(255 255 255 / 0.85)}.bg-gradient-to-br{background-image:linear-gradient(to bottom right, var(--tw-gradient-stops))}.bg-gradient-to-r{background-image:linear-gradient(to right, var(--tw-gradient-stops))}.from-\[\#DB2187\]{--tw-gradient-from:#DB2187 var(--tw-gradient-from-position);--tw-gradient-to:rgb(219 33 135 / 0) var(--tw-gradient-to-position);--tw-gradient-stops:var(--tw-gradient-from), var(--tw-gradient-to)}.from-\[\#E63996\]{--tw-gradient-from:#E63996 var(--tw-gradient-from-position);--tw-gradient-to:rgb(230 57 150 / 0) var(--tw-gradient-to-position);--tw-gradient-stops:var(--tw-gradient-from), var(--tw-gradient-to)}.from-\[\#F26E9F\]{--tw-gradient-from:#F26E9F var(--tw-gradient-from-position);--tw-gradient-to:rgb(242 110 159 / 0) var(--tw-gradient-to-position);--tw-gradient-stops:var(--tw-gradient-from), var(--tw-gradient-to)}.to-\[\#9E1460\]{--tw-gradient-to:#9E1460 var(--tw-gradient-to-position)}.to-\[\#DB2187\]{--tw-gradient-to:#DB2187 var(--tw-gradient-to-position)}.p-1{padding:0.25rem}.p-2{padding:0.5rem}.p-3{padding:0.75rem}.p-3\.5{padding:0.875rem}.p-6{padding:1.5rem}.px-2{padding-left:0.5rem;padding-right:0.5rem}.px-3{padding-left:0.75rem;padding-right:0.75rem}.px-3\.5{padding-left:0.875rem;padding-right:0.875rem}.px-4{padding-left:1rem;padding-right:1rem}.px-5{padding-left:1.25rem;padding-right:1.25rem}.py-0\.5{padding-top:0.125rem;padding-bottom:0.125rem}.py-1\.5{padding-top:0.375rem;padding-bottom:0.375rem}.py-2\.5{padding-top:0.625rem;padding-bottom:0.625rem}.pt-2{padding-top:0.5rem}.text-center{text-align:center}.text-2xl{font-size:1.5rem;line-height:2rem}.text-\[10\.5px\]{font-size:10.5px}.text-\[10px\]{font-size:10px}.text-\[11px\]{font-size:11px}.text-lg{font-size:1.125rem;line-height:1.75rem}.text-xs{font-size:0.75rem;line-height:1rem}.font-bold{font-weight:700}.font-extrabold{font-weight:800}.font-medium{font-weight:500}.uppercase{text-transform:uppercase}.leading-relaxed{line-height:1.625}.leading-tight{line-height:1.25}.tracking-wider{letter-spacing:0.05em}.text-\[\#2D2427\]{--tw-text-opacity:1;color:rgb(45 36 39 / var(--tw-text-opacity, 1))}.text-\[\#564348\]{--tw-text-opacity:1;color:rgb(86 67 72 / var(--tw-text-opacity, 1))}.text-\[\#6B565C\]{--tw-text-opacity:1;color:rgb(107 86 92 / var(--tw-text-opacity, 1))}.text-\[\#755E64\]{--tw-text-opacity:1;color:rgb(117 94 100 / var(--tw-text-opacity, 1))}.text-\[\#D6456B\]{--tw-text-opacity:1;color:rgb(214 69 107 / var(--tw-text-opacity, 1))}.text-\[\#DB2187\]{--tw-text-opacity:1;color:rgb(219 33 135 / var(--tw-text-opacity, 1))}.text-\[\#F291A8\]{--tw-text-opacity:1;color:rgb(242 145 168 / var(--tw-text-opacity, 1))}.text-\[\#F4EFF6\]{--tw-text-opacity:1;color:rgb(244 239 246 / var(--tw-text-opacity, 1))}.text-\[\#FAF6F8\]{--tw-text-opacity:1;color:rgb(250 246 248 / var(--tw-text-opacity, 1))}.text-emerald-800{--tw-text-opacity:1;color:rgb(6 95 70 / var(--tw-text-opacity, 1))}.text-white{--tw-text-opacity:1;color:rgb(255 255 255 / var(--tw-text-opacity, 1))}.opacity-0{opacity:0}.shadow-2xl{--tw-shadow:0 25px 50px -12px rgb(0 0 0 / 0.25);--tw-shadow-colored:0 25px 50px -12px var(--tw-shadow-color);box-shadow:var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow)}.shadow-lg{--tw-shadow:0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);--tw-shadow-colored:0 10px 15px -3px var(--tw-shadow-color), 0 4px 6px -4px var(--tw-shadow-color);box-shadow:var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow)}.shadow-md{--tw-shadow:0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);--tw-shadow-colored:0 4px 6px -1px var(--tw-shadow-color), 0 2px 4px -2px var(--tw-shadow-color);box-shadow:var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow)}.shadow-sm{--tw-shadow:0 1px 2px 0 rgb(0 0 0 / 0.05);--tw-shadow-colored:0 1px 2px 0 var(--tw-shadow-color);box-shadow:var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow)}.shadow-xl{--tw-shadow:0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);--tw-shadow-colored:0 20px 25px -5px var(--tw-shadow-color), 0 8px 10px -6px var(--tw-shadow-color);box-shadow:var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow)}.shadow-\[\#DB2187\]\/25{--tw-shadow-color:rgb(219 33 135 / 0.25);--tw-shadow:var(--tw-shadow-colored)}.ring-2{--tw-ring-offset-shadow:var(--tw-ring-inset) 0 0 0 var(--tw-ring-offset-width) var(--tw-ring-offset-color);--tw-ring-shadow:var(--tw-ring-inset) 0 0 0 calc(2px + var(--tw-ring-offset-width)) var(--tw-ring-color);box-shadow:var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow, 0 0 #0000)}.ring-\[\#DB2187\]{--tw-ring-opacity:1;--tw-ring-color:rgb(219 33 135 / var(--tw-ring-opacity, 1))}.backdrop-blur-md{--tw-backdrop-blur:blur(12px);-webkit-backdrop-filter:var(--tw-backdrop-blur) var(--tw-backdrop-brightness) var(--tw-backdrop-contrast) var(--tw-backdrop-grayscale) var(--tw-backdrop-hue-rotate) var(--tw-backdrop-invert) var(--tw-backdrop-opacity) var(--tw-backdrop-saturate) var(--tw-backdrop-sepia);backdrop-filter:var(--tw-backdrop-blur) var(--tw-backdrop-brightness) var(--tw-backdrop-contrast) var(--tw-backdrop-grayscale) var(--tw-backdrop-hue-rotate) var(--tw-backdrop-invert) var(--tw-backdrop-opacity) var(--tw-backdrop-saturate) var(--tw-backdrop-sepia)}.transition{transition-property:color, background-color, border-color, fill, stroke, opacity, box-shadow, transform, filter, -webkit-text-decoration-color, -webkit-backdrop-filter;transition-property:color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter;transition-property:color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter, -webkit-text-decoration-color, -webkit-backdrop-filter;transition-timing-function:cubic-bezier(0.4, 0, 0.2, 1);transition-duration:150ms}.transition-all{transition-property:all;transition-timing-function:cubic-bezier(0.4, 0, 0.2, 1);transition-duration:150ms}.duration-300{transition-duration:300ms}.hover\:bg-\[\#3F3337\]:hover{--tw-bg-opacity:1;background-color:rgb(63 51 55 / var(--tw-bg-opacity, 1))}.hover\:bg-\[\#43363A\]:hover{--tw-bg-opacity:1;background-color:rgb(67 54 58 / var(--tw-bg-opacity, 1))}.hover\:bg-\[\#DB2187\]:hover{--tw-bg-opacity:1;background-color:rgb(219 33 135 / var(--tw-bg-opacity, 1))}.hover\:bg-\[\#DB2187\]\/10:hover{background-color:rgb(219 33 135 / 0.1)}.hover\:bg-\[\#F291A8\]\/15:hover{background-color:rgb(242 145 168 / 0.15)}.hover\:from-\[\#D62B87\]:hover{--tw-gradient-from:#D62B87 var(--tw-gradient-from-position);--tw-gradient-to:rgb(214 43 135 / 0) var(--tw-gradient-to-position);--tw-gradient-stops:var(--tw-gradient-from), var(--tw-gradient-to)}.hover\:to-\[\#B81A70\]:hover{--tw-gradient-to:#B81A70 var(--tw-gradient-to-position)}.hover\:text-white:hover{--tw-text-opacity:1;color:rgb(255 255 255 / var(--tw-text-opacity, 1))}.active\:scale-95:active{--tw-scale-x:.95;--tw-scale-y:.95;transform:translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))}@media (min-width: 640px){.sm\:bottom-5{bottom:1.25rem}.sm\:left-5{left:1.25rem}.sm\:right-5{right:1.25rem}.sm\:top-5{top:1.25rem}.sm\:block{display:block}.sm\:w-\[316px\]{width:316px}.sm\:max-w-none{max-width:none}.sm\:p-2\.5{padding:0.625rem}.sm\:p-3\.5{padding:0.875rem}.sm\:px-4{padding-left:1rem;padding-right:1rem}.sm\:px-5{padding-left:1.25rem;padding-right:1.25rem}.sm\:text-sm{font-size:0.875rem;line-height:1.25rem}}</style></head>
+<body>
+
+    <!-- Viewport 3D Layar Penuh -->
+    <div id="canvas-container"></div>
+
+    <!-- Overlay Pemuatan / Error WebGL (Hanya tampil jika WebGL bermasalah) -->
+    <div id="webgl-fallback-overlay" class="hidden fixed inset-0 z-50 flex items-center justify-center bg-[#FDF5F7]/95 p-6">
+        <div class="max-w-md w-full bg-white rounded-3xl border border-[#F291A8] p-6 text-center shadow-xl">
+            <div class="w-12 h-12 rounded-2xl bg-[#F291A8]/20 text-[#D6456B] flex items-center justify-center mx-auto text-2xl font-bold mb-3">!</div>
+            <h2 class="text-lg font-extrabold text-[#2D2427]">Memuat Pratinjau 3D WebGL</h2>
+            <p id="webgl-error-msg" class="text-xs text-[#6B565C] mt-2 leading-relaxed">
+                Menyiapkan mesin grafis 3D untuk botol inklusif LABORÉ...
+            </p>
+            <button onclick="location.reload()" class="mt-4 px-5 py-2.5 rounded-xl bg-[#DB2187] text-white text-xs font-bold shadow-sm cursor-pointer">
+                Muat Ulang Pratinjau
+            </button>
+        </div>
+    </div>
+
+    <!-- Toast Notifikasi Status Interaktif -->
+    <div id="toast-box" class="fixed top-20 left-1/2 -translate-x-1/2 z-40 pointer-events-none transition-all duration-300 opacity-0 -translate-y-3">
+        <div id="toast-pill" class="px-4 py-2.5 rounded-2xl shadow-lg border text-xs sm:text-sm font-bold flex items-center gap-2 bg-[#2D2427] text-white border-[#F291A8]">
+            <span id="toast-icon">✨</span>
+            <span id="toast-text">Siap digunakan</span>
+        </div>
+    </div>
+
+    <!-- TOP-LEFT: Status Pill, Pemilih Ukuran (250 ml / 1000 ml) & Indikator Sisa Lotion Airless -->
+    <div class="fixed top-3.5 left-3.5 sm:top-5 sm:left-5 z-20 studio-glass rounded-2xl p-3 sm:p-3.5 w-[274px] sm:w-[316px]">
+        <div class="flex items-center justify-between gap-2">
+            <div class="flex items-center gap-2">
+                <span class="w-7 h-7 rounded-xl bg-gradient-to-br from-[#DB2187] to-[#9E1460] text-white font-extrabold text-xs flex items-center justify-center shadow-sm">
+                    L+
+                </span>
+                <div>
+                    <h1 id="hud-title" class="text-xs sm:text-sm font-extrabold text-[#2D2427] leading-tight">
+                        LABORÉ Inclusive Airless 250 ml
+                    </h1>
+                    <p class="text-[10px] text-[#6B565C] font-medium">
+                        Hook-Pump #DB2187 • Grip Luar • Kunci Geser
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Pemilih Varian Ukuran Kemasan: 250 ml vs 1000 ml (1 L) -->
+        <div class="mt-2.5 pt-2 border-t border-[#F291A8]/35">
+            <div class="flex items-center justify-between text-[10.5px] font-bold text-[#564348] mb-1.5">
+                <span>Ukuran Kemasan:</span>
+                <span id="size-badge" class="text-[#DB2187] font-extrabold">Reguler (250 ml)</span>
+            </div>
+            <div class="grid grid-cols-2 gap-1.5 bg-white/85 p-1 rounded-xl border border-[#F291A8]/45">
+                <button id="btn-size-250" data-size="250" class="size-pill py-1.5 px-2 rounded-lg text-[11px] font-extrabold bg-[#DB2187] text-white shadow-sm transition cursor-pointer">
+                    250 ml
+                </button>
+                <button id="btn-size-1000" data-size="1000" class="size-pill py-1.5 px-2 rounded-lg text-[11px] font-extrabold text-[#2D2427] hover:bg-[#DB2187]/10 transition cursor-pointer">
+                    1000 ml (1 L)
+                </button>
+            </div>
+        </div>
+
+        <!-- Bar Persentase Sisa Lotion & Status Kunci -->
+        <div class="mt-2.5 pt-2 border-t border-[#F291A8]/35">
+            <div class="flex items-center justify-between text-[11px] font-bold mb-1">
+                <span class="text-[#564348]">Sisa Lotion:</span>
+                <span id="volume-label" class="text-[#DB2187] font-extrabold">250 ml (100%)</span>
+            </div>
+            <div class="w-full h-2 bg-white rounded-full overflow-hidden border border-[#F291A8]/45">
+                <div id="volume-bar" class="h-full bg-gradient-to-r from-[#F26E9F] to-[#DB2187] transition-all duration-300 rounded-full" style="width: 100%;"></div>
+            </div>
+            <div class="mt-2 flex items-center justify-between text-[10.5px]">
+                <span id="hud-lock-pill" class="px-2 py-0.5 rounded-full bg-emerald-100 text-emerald-800 font-bold">
+                    Kunci: TERBUKA
+                </span>
+                <span id="piston-status" class="font-bold text-[#755E64]">Piston Airless: 0%</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- TOP-RIGHT: Preset Sudut Kamera 3D + Tombol Ekspor Website Mandiri -->
+    <div class="fixed top-3.5 right-3.5 sm:top-5 sm:right-5 z-20 flex flex-col items-end gap-1.5 max-w-[205px] sm:max-w-none">
+        <div class="flex flex-wrap justify-end gap-1.5">
+            <button data-preset="depan" class="cam-pill px-3 py-1.5 rounded-full text-[11px] font-extrabold studio-glass text-[#2D2427] hover:bg-[#DB2187] hover:text-white transition cursor-pointer ring-2 ring-[#DB2187]">
+                Depan (Branding)
+            </button>
+            <button data-preset="samping" class="cam-pill px-3 py-1.5 rounded-full text-[11px] font-extrabold studio-glass text-[#2D2427] hover:bg-[#DB2187] hover:text-white transition cursor-pointer">
+                Samping (Hook Pump &amp; Siku)
+            </button>
+            <button data-preset="belakang" class="cam-pill px-3 py-1.5 rounded-full text-[11px] font-extrabold studio-glass text-[#2D2427] hover:bg-[#DB2187] hover:text-white transition cursor-pointer">
+                Belakang (Braille &amp; QR)
+            </button>
+            <button data-preset="alas" class="cam-pill px-3 py-1.5 rounded-full text-[11px] font-extrabold studio-glass text-[#2D2427] hover:bg-[#DB2187] hover:text-white transition cursor-pointer">
+                Alas Anti-Slip
+            </button>
+        </div>
+
+        <!-- Tombol Simpan Jadi File Website Mandiri (.html) -->
+        <button id="btn-export-html" class="px-3 py-1.5 rounded-full text-[11px] font-extrabold bg-[#2D2427] hover:bg-[#43363A] text-[#FAF6F8] border border-[#F291A8]/60 shadow-sm transition flex items-center gap-1.5 cursor-pointer" title="Unduh simulasi 3D ini menjadi file website mandiri (.html)">
+            <span>⬇️</span>
+            <span>Simpan Jadi Website (.html)</span>
+        </button>
+    </div>
+
+    <!-- Banner Subtitle Suara Audio QR (Sisi Belakang -Z) -->
+    <div id="audio-transcript-panel" class="hidden fixed bottom-24 left-1/2 -translate-x-1/2 z-30 w-[92vw] max-w-xl bg-[#2D2427]/95 backdrop-blur-md text-[#FAF6F8] border border-[#F291A8] rounded-2xl p-3.5 shadow-2xl">
+        <div class="flex items-center justify-between gap-2 mb-1">
+            <div class="flex items-center gap-2">
+                <span class="px-2 py-0.5 rounded bg-[#DB2187] text-[10px] font-extrabold tracking-wider uppercase">
+                    Audio QR Tunanetra (Sisi Belakang) • ⠇⠁⠃⠕⠗⠑
+                </span>
+                <div class="flex items-center gap-0.5 h-3.5">
+                    <span class="w-1 h-3 bg-[#F291A8] rounded-full eq-bar"></span>
+                    <span class="w-1 h-3.5 bg-[#DB2187] rounded-full eq-bar"></span>
+                    <span class="w-1 h-2.5 bg-white rounded-full eq-bar"></span>
+                    <span class="w-1 h-3.5 bg-[#F291A8] rounded-full eq-bar"></span>
+                </div>
+            </div>
+            <button id="btn-close-transcript" class="text-[11px] font-bold text-[#F291A8] hover:text-white px-2 py-0.5 cursor-pointer">
+                Tutup ✕
+            </button>
+        </div>
+        <p id="audio-transcript-text" class="text-xs leading-relaxed text-[#F4EFF6]"></p>
+    </div>
+
+    <!-- BOTTOM FLOATING ACTION DOCK -->
+    <div class="fixed bottom-3.5 sm:bottom-5 left-1/2 -translate-x-1/2 z-20 w-[96vw] max-w-4xl">
+        <div class="studio-glass rounded-3xl p-2 sm:p-2.5 flex flex-wrap items-center justify-center gap-2">
+            <!-- 1. Tombol Utama: Simulasi Tekan Siku -->
+            <button id="btn-pump" class="px-4 sm:px-5 py-2.5 rounded-2xl bg-gradient-to-r from-[#E63996] to-[#DB2187] hover:from-[#D62B87] hover:to-[#B81A70] active:scale-95 text-white font-extrabold text-xs sm:text-sm shadow-md shadow-[#DB2187]/25 transition flex items-center gap-2 cursor-pointer">
+                <span>💪</span>
+                <span>TEKAN PUMP (SIMULASI SIKU)</span>
+            </button>
+
+            <!-- 2. Tombol Toggle: Kunci Geser TERBUKA / TERKUNCI -->
+            <button id="btn-lock" class="px-3.5 sm:px-4 py-2.5 rounded-2xl bg-white hover:bg-[#F291A8]/15 border border-[#DB2187]/60 text-[#2D2427] font-extrabold text-xs sm:text-sm transition flex items-center gap-2 cursor-pointer">
+                <span id="lock-icon">🔓</span>
+                <span id="lock-btn-label">Kunci Geser: TERBUKA</span>
+            </button>
+
+            <!-- 3. Tombol Toggle: Mode X-Ray Airless -->
+            <button id="btn-xray" class="px-3.5 sm:px-4 py-2.5 rounded-2xl bg-white hover:bg-[#F291A8]/15 border border-[#F291A8]/70 text-[#2D2427] font-bold text-xs sm:text-sm transition flex items-center gap-1.5 cursor-pointer">
+                <span>🔬</span>
+                <span id="xray-btn-label">Mode X-Ray Airless</span>
+            </button>
+
+            <!-- 4. Tombol: Pindai QR Audio -->
+            <button id="btn-qr-audio" class="px-3.5 sm:px-4 py-2.5 rounded-2xl bg-[#2D2427] hover:bg-[#3F3337] text-[#FAF6F8] font-bold text-xs sm:text-sm transition flex items-center gap-1.5 cursor-pointer">
+                <span>🔊</span>
+                <span id="qr-btn-label">Pindai QR Audio</span>
+            </button>
+
+            <!-- 5. Tombol: Isi Ulang 100% -->
+            <button id="btn-refill" class="px-3 py-2.5 rounded-2xl bg-white hover:bg-[#F291A8]/15 border border-[#F291A8]/70 text-[#DB2187] font-bold text-xs sm:text-sm transition flex items-center gap-1 cursor-pointer" title="Reset isi lotion 100%">
+                <span>↻</span>
+                <span>Reset Isi (100%)</span>
+            </button>
+        </div>
+        <div class="text-center mt-1.5 text-[10px] font-medium text-[#755E64] hidden sm:block">
+            Seret 360° untuk memutar • Scroll / Cubit untuk Zoom • Klik langsung Tatakan Bawah Hook-Pump Lebar, Kunci Geser, atau QR Code Belakang
+        </div>
+    </div>
+
+    <!-- Pemuatan Three.js r128 dari cdnjs dengan Fallback Otomatis unpkg -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js" crossorigin="anonymous"></script>
+    <script>
+        (function bootApplication() {
+            function loadFallbackThree(callback) {
+                if (typeof window.THREE !== 'undefined') {
+                    callback();
+                    return;
+                }
+                const script = document.createElement('script');
+                script.src = 'https://unpkg.com/three@0.128.0/build/three.min.js';
+                script.onload = callback;
+                script.onerror = function () {
+                    showFatalOverlay('Gagal memuat pustaka grafis Three.js dari CDN. Periksa koneksi internet Anda.');
+                };
+                document.head.appendChild(script);
+            }
+
+            function showFatalOverlay(msg) {
+                const overlay = document.getElementById('webgl-fallback-overlay');
+                const errText = document.getElementById('webgl-error-msg');
+                if (errText) errText.textContent = msg;
+                if (overlay) overlay.classList.remove('hidden');
+            }
+
+            function startWhenReady() {
+                loadFallbackThree(() => {
+                    try {
+                        init3DStudio();
+                    } catch (err) {
+                        console.error('3D Initialization Error:', err);
+                        showFatalOverlay('Terjadi kendala inisialisasi WebGL: ' + (err && err.message ? err.message : err));
+                    }
+                });
+            }
+
+            if (document.readyState === 'loading') {
+                document.addEventListener('DOMContentLoaded', startWhenReady);
+            } else {
+                startWhenReady();
+            }
+        })();
+
+        /**
+         * MESIN STUDIO 3D LABORÉ GENTLEBIOTIC™ (250 ML & 1000 ML / 1 L)
+         * Fitur Lengkap:
+         * 1. Hook-Shaped Pump Glossy Vibrant Magenta-Pink (#DB2187) berpenampang pita lebar + Tatakan Bawah Lebar (3.35 x 2.40)
+         * 2. Bahu Atas Botol dengan Radius Lengkungan Lancip (y = 2.58..2.72) agar Piston Airless mentok hingga puncak (y = 2.50)
+         * 3. Tempelan QR Code & Braille 3D Timbul melengkung rapat mengikuti kontur silinder belakang (-Z, r = 1.48)
+         * 4. Pemilih varian kemasan 250 ml dan 1000 ml (1 L) interaktif
+         */
+        function init3DStudio() {
+            const container = document.getElementById('canvas-container');
+            const getWidth = () => Math.max(container.clientWidth || 0, window.innerWidth || 800);
+            const getHeight = () => Math.max(container.clientHeight || 0, window.innerHeight || 600);
+
+            // 1. Scene, Kamera & WebGLRenderer
+            const scene = new THREE.Scene();
+            const camera = new THREE.PerspectiveCamera(36, getWidth() / getHeight(), 0.1, 100);
+
+            const renderer = new THREE.WebGLRenderer({
+                antialias: true,
+                alpha: true,
+                powerPreference: 'high-performance'
+            });
+            renderer.setSize(getWidth(), getHeight());
+            renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, 2));
+            renderer.shadowMap.enabled = true;
+            renderer.shadowMap.type = THREE.PCFSoftShadowMap;
+            renderer.toneMapping = THREE.ACESFilmicToneMapping;
+            renderer.toneMappingExposure = 1.06;
+            container.appendChild(renderer.domElement);
+
+            // 2. Kontrol Kamera Orbit + Zoom Sferis (Mouse & Sentuh)
+            const orbitState = {
+                theta: 0.42,
+                phi: 1.28,
+                radius: 10.8,
+                target: new THREE.Vector3(0, 0.65, 0),
+                targetTheta: 0.42,
+                targetPhi: 1.28,
+                targetRadius: 10.8,
+                targetLookAt: new THREE.Vector3(0, 0.65, 0),
+                isDragging: false,
+                prevX: 0,
+                prevY: 0,
+                pinchDist: 0
+            };
+
+            function updateCameraFromOrbit() {
+                orbitState.phi = Math.max(0.20, Math.min(Math.PI - 0.12, orbitState.phi));
+                orbitState.targetPhi = Math.max(0.20, Math.min(Math.PI - 0.12, orbitState.targetPhi));
+                orbitState.radius = Math.max(4.2, Math.min(22.0, orbitState.radius));
+                orbitState.targetRadius = Math.max(4.2, Math.min(22.0, orbitState.targetRadius));
+
+                orbitState.theta += (orbitState.targetTheta - orbitState.theta) * 0.12;
+                orbitState.phi += (orbitState.targetPhi - orbitState.phi) * 0.12;
+                orbitState.radius += (orbitState.targetRadius - orbitState.radius) * 0.12;
+                orbitState.target.lerp(orbitState.targetLookAt, 0.12);
+
+                const sinPhi = Math.sin(orbitState.phi);
+                camera.position.set(
+                    orbitState.target.x + orbitState.radius * sinPhi * Math.sin(orbitState.theta),
+                    orbitState.target.y + orbitState.radius * Math.cos(orbitState.phi),
+                    orbitState.target.z + orbitState.radius * sinPhi * Math.cos(orbitState.theta)
+                );
+                camera.lookAt(orbitState.target);
+            }
+            updateCameraFromOrbit();
+
+            let pointerDownPos = { x: 0, y: 0 };
+            renderer.domElement.addEventListener('pointerdown', (e) => {
+                orbitState.isDragging = true;
+                orbitState.prevX = e.clientX;
+                orbitState.prevY = e.clientY;
+                pointerDownPos = { x: e.clientX, y: e.clientY };
+            });
+
+            window.addEventListener('pointermove', (e) => {
+                if (!orbitState.isDragging) return;
+                const dx = e.clientX - orbitState.prevX;
+                const dy = e.clientY - orbitState.prevY;
+                orbitState.prevX = e.clientX;
+                orbitState.prevY = e.clientY;
+
+                orbitState.targetTheta -= dx * 0.0075;
+                orbitState.targetPhi -= dy * 0.0065;
+            });
+
+            window.addEventListener('pointerup', () => {
+                orbitState.isDragging = false;
+            });
+
+            renderer.domElement.addEventListener('wheel', (e) => {
+                e.preventDefault();
+                orbitState.targetRadius += e.deltaY * 0.0065;
+            }, { passive: false });
+
+            renderer.domElement.addEventListener('touchstart', (e) => {
+                if (e.touches.length === 2) {
+                    orbitState.pinchDist = Math.hypot(
+                        e.touches[0].clientX - e.touches[1].clientX,
+                        e.touches[0].clientY - e.touches[1].clientY
+                    );
+                }
+            }, { passive: true });
+
+            renderer.domElement.addEventListener('touchmove', (e) => {
+                if (e.touches.length === 2 && orbitState.pinchDist > 0) {
+                    const newDist = Math.hypot(
+                        e.touches[0].clientX - e.touches[1].clientX,
+                        e.touches[0].clientY - e.touches[1].clientY
+                    );
+                    const delta = orbitState.pinchDist - newDist;
+                    orbitState.targetRadius += delta * 0.024;
+                    orbitState.pinchDist = newDist;
+                }
+            }, { passive: true });
+
+            // 3. Pencahayaan Studio 3-Titik & Bayangan Lantai Lembut
+            const hemiLight = new THREE.HemisphereLight(0xffffff, 0xf6dce3, 0.88);
+            hemiLight.position.set(0, 14, 0);
+            scene.add(hemiLight);
+
+            const keyLight = new THREE.DirectionalLight(0xffffff, 0.92);
+            keyLight.position.set(6.5, 11, 8.5);
+            keyLight.castShadow = true;
+            keyLight.shadow.mapSize.width = 2048;
+            keyLight.shadow.mapSize.height = 2048;
+            keyLight.shadow.camera.near = 1;
+            keyLight.shadow.camera.far = 30;
+            keyLight.shadow.bias = -0.0005;
+            scene.add(keyLight);
+
+            const fillLight = new THREE.DirectionalLight(0xfde8ee, 0.54);
+            fillLight.position.set(-7.5, 4.5, 5.5);
+            scene.add(fillLight);
+
+            const rimLight = new THREE.DirectionalLight(0xffffff, 0.65);
+            rimLight.position.set(-3, 6, -8.5);
+            scene.add(rimLight);
+
+            // Podium Lantai Studio Rose-Ivory
+            const pedestal = new THREE.Mesh(
+                new THREE.CylinderGeometry(4.4, 4.6, 0.14, 64),
+                new THREE.MeshStandardMaterial({ color: 0xfaf6f8, roughness: 0.45, metalness: 0.02 })
+            );
+            pedestal.position.y = -2.47;
+            pedestal.receiveShadow = true;
+            scene.add(pedestal);
+
+            const pedestalAccent = new THREE.Mesh(
+                new THREE.TorusGeometry(4.48, 0.018, 16, 64),
+                new THREE.MeshStandardMaterial({ color: 0xf291a8, roughness: 0.35 })
+            );
+            pedestalAccent.rotation.x = Math.PI / 2;
+            pedestalAccent.position.y = -2.41;
+            scene.add(pedestalAccent);
+
+            // 4. Tekstur Label Sisi Depan (+Z) — Identitas Resmi LABORÉ GentleBiotic™ (250 ml / 1000 ml • 1 L)
+            function createCleanFrontLabelTexture(capacityText = '250 ml') {
+                const canvas = document.createElement('canvas');
+                canvas.width = 1024;
+                canvas.height = 1024;
+                const ctx = canvas.getContext('2d');
+
+                // Warna dasar body botol soft pastel blush-pink (#F7B5C7) agar kontras dengan pump #DB2187
+                ctx.fillStyle = '#F7B5C7';
+                ctx.fillRect(0, 0, 1024, 1024);
+
+                const grad = ctx.createLinearGradient(0, 0, 1024, 0);
+                grad.addColorStop(0.0, 'rgba(232, 148, 173, 0.22)');
+                grad.addColorStop(0.5, 'rgba(255, 236, 242, 0.18)');
+                grad.addColorStop(1.0, 'rgba(232, 148, 173, 0.22)');
+                ctx.fillStyle = grad;
+                ctx.fillRect(0, 0, 1024, 1024);
+
+                // Pada CylinderGeometry Three.js, u = 0.5 tepat menghadap +Z setelah rotasi Y = Math.PI
+                const cx = 512;
+
+                // Logo Putih "LABORÉ" & "sensitive skin care"
+                ctx.textAlign = 'center';
+                ctx.fillStyle = '#FFFFFF';
+                ctx.font = '300 50px "Plus Jakarta Sans", "Inter", sans-serif';
+                const letters = ['L', 'A', 'B', 'O', 'R', 'É'];
+                const step = 38;
+                const startX = cx - ((letters.length - 1) * step) / 2;
+                letters.forEach((ch, i) => {
+                    ctx.fillText(ch, startX + i * step, 176);
+                });
+
+                ctx.fillStyle = 'rgba(255, 255, 255, 0.96)';
+                ctx.font = '400 20.5px "Plus Jakarta Sans", "Inter", sans-serif';
+                ctx.fillText('sensitive skin care', cx, 214);
+
+                // Emblem Lingkaran Putih Kanan Atas
+                const ex = 612;
+                const ey = 304;
+                const er = 35;
+                ctx.save();
+                ctx.beginPath();
+                ctx.arc(ex, ey, er, 0, Math.PI * 2);
+                ctx.fillStyle = '#FFFFFF';
+                ctx.fill();
+
+                ctx.strokeStyle = '#DB2187';
+                ctx.lineWidth = 3.6;
+                ctx.lineCap = 'round';
+                ctx.beginPath();
+                ctx.moveTo(ex - 13, ey + 15);
+                ctx.quadraticCurveTo(ex - 4, ey - 12, ex + 15, ey - 15);
+                ctx.stroke();
+
+                ctx.beginPath();
+                ctx.moveTo(ex - 15, ey - 8);
+                ctx.quadraticCurveTo(ex + 2, ey - 2, ex + 13, ey + 15);
+                ctx.stroke();
+
+                ctx.fillStyle = '#DB2187';
+                ctx.beginPath();
+                ctx.arc(ex, ey - 12, 5, 0, Math.PI * 2);
+                ctx.fill();
+                ctx.restore();
+
+                // Kartu Label Lavender-Off-White (#F4EFF6) Rounded di Bagian Bawah Depan
+                const cardW = 282;
+                const cardH = 442;
+                const cardX = cx - cardW / 2;
+                const cardY = 414;
+                const r = 36;
+
+                ctx.save();
+                ctx.beginPath();
+                ctx.moveTo(cardX + r, cardY);
+                ctx.lineTo(cardX + cardW - r, cardY);
+                ctx.quadraticCurveTo(cardX + cardW, cardY, cardX + cardW, cardY + r);
+                ctx.lineTo(cardX + cardW, cardY + cardH - r);
+                ctx.quadraticCurveTo(cardX + cardW, cardY + cardH, cardX + cardW - r, cardY + cardH);
+                ctx.lineTo(cardX + r, cardY + cardH);
+                ctx.quadraticCurveTo(cardX, cardY + cardH, cardX, cardY + cardH - r);
+                ctx.lineTo(cardX, cardY + r);
+                ctx.quadraticCurveTo(cardX, cardY, cardX + r, cardY);
+                ctx.closePath();
+                ctx.fillStyle = '#F4EFF6';
+                ctx.fill();
+                ctx.strokeStyle = 'rgba(255,255,255,0.92)';
+                ctx.lineWidth = 2.2;
+                ctx.stroke();
+                ctx.restore();
+
+                // Tipografi Produk di Dalam Kartu Depan
+                ctx.textAlign = 'left';
+                const tx = cardX + 24;
+
+                ctx.fillStyle = '#2D2427';
+                ctx.font = '700 24px "Plus Jakarta Sans", "Inter", sans-serif';
+                ctx.fillText('GentleBiotic™', tx, cardY + 64);
+
+                ctx.fillStyle = '#382B2E';
+                ctx.font = '600 18px "Plus Jakarta Sans", "Inter", sans-serif';
+                ctx.fillText('Sensitive Body Lotion', tx, cardY + 94);
+
+                ctx.fillStyle = '#524146';
+                ctx.font = '500 15.5px "Inter", sans-serif';
+                ctx.fillText('Mildly Hydrating', tx, cardY + 158);
+                ctx.fillText('Maintain Skin Barrier', tx, cardY + 188);
+                ctx.fillText('pH Balanced', tx, cardY + 218);
+
+                // Kapasitas "250 ml" atau "1000 ml • 1 L" dalam tinta magenta-crimson
+                ctx.textAlign = 'center';
+                ctx.fillStyle = '#B81B71';
+                ctx.font = '700 20px "Plus Jakarta Sans", "Inter", sans-serif';
+                ctx.fillText(capacityText, cx, cardY + cardH - 34);
+
+                const tex = new THREE.CanvasTexture(canvas);
+                tex.anisotropy = 8;
+                return tex;
+            }
+
+            // 5. PERAKITAN MODEL 3D BOTOL INKLUSIF LABORÉ (250 ML & 1000 ML / 1 L)
+            // Pivot skala diletakkan tepat pada permukaan podium (y = -2.40) agar dasar botol tetap menapak sempurna
+            const bottleRootPivot = new THREE.Group();
+            bottleRootPivot.position.y = -2.40;
+            scene.add(bottleRootPivot);
+
+            const bottleGroup = new THREE.Group();
+            bottleGroup.position.y = 2.40;
+            bottleRootPivot.add(bottleGroup);
+
+            // Dinding Silinder Lurus Diperpanjang & Bahu Atas Dilancipkan (y = 2.58 ke y = 2.72)
+            // agar pelat piston airless dapat naik mentok rapat sampai puncak dinding lurus!
+            const CYL_RADIUS = 1.48;
+            const CYL_Y_BOT = -2.05;
+            const CYL_Y_TOP = 2.58;
+            const CYL_HEIGHT = CYL_Y_TOP - CYL_Y_BOT; // 4.63
+
+            const bottleShellMat = new THREE.MeshPhysicalMaterial({
+                map: createCleanFrontLabelTexture('250 ml'),
+                color: 0xffffff,
+                roughness: 0.16,
+                metalness: 0.02,
+                clearcoat: 0.88,
+                clearcoatRoughness: 0.11,
+                transparent: true,
+                opacity: 1.0
+            });
+
+            const pinkPlasticMat = new THREE.MeshPhysicalMaterial({
+                color: 0xf7b5c7, // Soft pastel blush-pink untuk bahu & dasar botol
+                roughness: 0.16,
+                metalness: 0.02,
+                clearcoat: 0.88,
+                clearcoatRoughness: 0.11,
+                transparent: true,
+                opacity: 1.0
+            });
+
+            // Material Plastik Glossy Vibrant Magenta-Pink (#DB2187) untuk Hook-Shaped Pump & Collar Ring
+            const glossyPinkPumpMat = new THREE.MeshPhysicalMaterial({
+                color: 0xdb2187,
+                roughness: 0.14,
+                metalness: 0.02,
+                clearcoat: 0.92,
+                clearcoatRoughness: 0.08
+            });
+
+            const gripSiliconeMat = new THREE.MeshStandardMaterial({
+                color: 0xe37691, // Bantalan grip luar silikon rose-pink (#E37691)
+                roughness: 0.78,
+                metalness: 0.02
+            });
+
+            const gripDotMat = new THREE.MeshStandardMaterial({
+                color: 0xf190a8,
+                roughness: 0.60,
+                metalness: 0.02
+            });
+
+            const espressoRubberMat = new THREE.MeshStandardMaterial({
+                color: 0x3a3133, // Alas karet anti-slip espresso-charcoal (#3A3133)
+                roughness: 0.88,
+                metalness: 0.04
+            });
+
+            const matteWhiteMat = new THREE.MeshPhysicalMaterial({
+                color: 0xfaf6f8, // Matte-white (#FAF6F8) untuk housing kunci geser & piston
+                roughness: 0.25,
+                metalness: 0.02,
+                clearcoat: 0.38,
+                clearcoatRoughness: 0.18
+            });
+
+            const crimsonIndicatorMat = new THREE.MeshStandardMaterial({
+                color: 0xd6456b, // Indikator kunci geser merah-crimson (#D6456B)
+                roughness: 0.28,
+                emissive: 0x5a1226,
+                emissiveIntensity: 0.28
+            });
+
+            const lotionFluidMat = new THREE.MeshPhysicalMaterial({
+                color: 0xfbe3ea,
+                roughness: 0.20,
+                transparent: true,
+                opacity: 0.94
+            });
+
+            // A. Badan Botol Silinder Lurus Vertikal (radius = 1.48, height = 4.63, y = -2.05..2.58)
+            const mainCylinderMesh = new THREE.Mesh(
+                new THREE.CylinderGeometry(CYL_RADIUS, CYL_RADIUS, CYL_HEIGHT, 96, 1, false),
+                bottleShellMat
+            );
+            mainCylinderMesh.position.y = (CYL_Y_BOT + CYL_Y_TOP) / 2; // y = 0.265
+            mainCylinderMesh.rotation.y = Math.PI;
+            mainCylinderMesh.castShadow = true;
+            mainCylinderMesh.receiveShadow = true;
+            bottleGroup.add(mainCylinderMesh);
+
+            // Sudut bawah membulat halus dari y = -2.05 ke y = -2.18
+            const bottomBevelPts = [];
+            for (let i = 0; i <= 10; i++) {
+                const t = i / 10;
+                const r = CYL_RADIUS - 0.16 * Math.pow(t, 1.8);
+                const y = CYL_Y_BOT - 0.13 * Math.sin(t * (Math.PI / 2));
+                bottomBevelPts.push(new THREE.Vector2(r, y));
+            }
+            const bottomBevelMesh = new THREE.Mesh(
+                new THREE.LatheGeometry(bottomBevelPts, 72),
+                pinkPlasticMat
+            );
+            bottleGroup.add(bottomBevelMesh);
+
+            // Bahu Atas Botol dengan Radius Lengkungan Lancip / Tajam (naik 0.14 unit dari y = 2.58 ke y = 2.72)
+            // Kurva tajam Math.pow(t, 3.2) agar pelat piston airless dapat naik mentok sampai puncak
+            const shoulderPoints = [];
+            for (let i = 0; i <= 16; i++) {
+                const t = i / 16;
+                const r = CYL_RADIUS - (CYL_RADIUS - 0.78) * Math.pow(t, 3.2);
+                const y = CYL_Y_TOP + 0.14 * Math.sin(t * (Math.PI / 2));
+                shoulderPoints.push(new THREE.Vector2(r, y));
+            }
+            const shoulderMesh = new THREE.Mesh(
+                new THREE.LatheGeometry(shoulderPoints, 72),
+                pinkPlasticMat
+            );
+            shoulderMesh.castShadow = true;
+            bottleGroup.add(shoulderMesh);
+
+            // B. Dua Bantalan Grip Luar Silikon Berlekuk Hourglass + 160+ Bintik Taktil per Sisi
+            function buildExternalHourglassGripPad(sideSign) {
+                const padGroup = new THREE.Group();
+                const yBottom = -1.86;
+                const yTop = 2.38;
+                const vSteps = 54;
+                const uSteps = 26;
+
+                const getHalfAngleSpan = (v) => {
+                    const hourglass = Math.cos((v - 0.52) * Math.PI * 1.55);
+                    const baseSpan = 0.36 + 0.11 * hourglass;
+                    const endCap = Math.pow(Math.sin(v * Math.PI), 0.22);
+                    return baseSpan * endCap;
+                };
+
+                const centerTheta = sideSign * (Math.PI / 2);
+
+                const padGeo = new THREE.BufferGeometry();
+                const positions = [];
+                const indices = [];
+
+                for (let iv = 0; iv <= vSteps; iv++) {
+                    const v = iv / vSteps;
+                    const y = yBottom + v * (yTop - yBottom);
+                    const halfSpan = getHalfAngleSpan(v);
+                    const endTaper = Math.pow(Math.sin(v * Math.PI), 0.2);
+
+                    for (let iu = 0; iu <= uSteps; iu++) {
+                        const uNorm = (iu / uSteps) * 2 - 1;
+                        const theta = centerTheta + uNorm * halfSpan;
+
+                        const edgeProximity = 1 - Math.abs(uNorm);
+                        const rimLip = edgeProximity < 0.18 ? Math.sin((edgeProximity / 0.18) * Math.PI) * 0.016 : 0;
+                        const padThickness = (0.035 * Math.pow(Math.max(0, 1 - Math.pow(uNorm, 6)), 0.35) + rimLip) * endTaper;
+                        const r = CYL_RADIUS + 0.002 + padThickness;
+
+                        positions.push(r * Math.sin(theta), y, r * Math.cos(theta));
+                    }
+                }
+
+                const stride = uSteps + 1;
+                for (let iv = 0; iv < vSteps; iv++) {
+                    for (let iu = 0; iu < uSteps; iu++) {
+                        const i00 = iv * stride + iu;
+                        const i10 = (iv + 1) * stride + iu;
+                        const i11 = (iv + 1) * stride + (iu + 1);
+                        const i01 = iv * stride + (iu + 1);
+                        indices.push(i00, i01, i11);
+                        indices.push(i00, i11, i10);
+                    }
+                }
+
+                padGeo.setAttribute('position', new THREE.Float32BufferAttribute(positions, 3));
+                padGeo.setIndex(indices);
+                padGeo.computeVertexNormals();
+
+                const padMesh = new THREE.Mesh(padGeo, gripSiliconeMat);
+                padMesh.castShadow = true;
+                padMesh.receiveShadow = true;
+                padGroup.add(padMesh);
+
+                // Bingkai tepi silikon halus
+                const borderPts = [];
+                for (let i = 0; i <= 40; i++) {
+                    const v = 0.02 + (i / 40) * 0.96;
+                    const y = yBottom + v * (yTop - yBottom);
+                    const theta = centerTheta + getHalfAngleSpan(v) * 0.97;
+                    const r = CYL_RADIUS + 0.030;
+                    borderPts.push(new THREE.Vector3(r * Math.sin(theta), y, r * Math.cos(theta)));
+                }
+                for (let i = 40; i >= 0; i--) {
+                    const v = 0.02 + (i / 40) * 0.96;
+                    const y = yBottom + v * (yTop - yBottom);
+                    const theta = centerTheta - getHalfAngleSpan(v) * 0.97;
+                    const r = CYL_RADIUS + 0.030;
+                    borderPts.push(new THREE.Vector3(r * Math.sin(theta), y, r * Math.cos(theta)));
+                }
+                const borderTube = new THREE.Mesh(
+                    new THREE.TubeGeometry(new THREE.CatmullRomCurve3(borderPts, true), 96, 0.017, 8, true),
+                    gripSiliconeMat
+                );
+                padGroup.add(borderTube);
+
+                // 160+ Bintik Taktil Setengah Bola 3D per Sisi
+                const matrices = [];
+                const dummy = new THREE.Object3D();
+                const rows = 31;
+
+                for (let rIdx = 1; rIdx < rows; rIdx++) {
+                    const v = rIdx / rows;
+                    if (v < 0.04 || v > 0.96) continue;
+                    const y = yBottom + v * (yTop - yBottom);
+                    const halfSpan = getHalfAngleSpan(v) * 0.84;
+                    const cols = Math.max(6, Math.round((halfSpan * 2) / 0.082));
+                    const stagger = (rIdx % 2 === 0) ? 0.5 / cols : 0;
+
+                    for (let cIdx = 0; cIdx < cols; cIdx++) {
+                        const uFrac = ((cIdx + 0.5) / cols + stagger) * 2 - 1;
+                        if (Math.abs(uFrac) > 0.94) continue;
+
+                        const theta = centerTheta + uFrac * halfSpan;
+                        const rOut = CYL_RADIUS + 0.036;
+                        const pos = new THREE.Vector3(rOut * Math.sin(theta), y, rOut * Math.cos(theta));
+                        const normal = new THREE.Vector3(Math.sin(theta), 0, Math.cos(theta));
+
+                        dummy.position.copy(pos);
+                        dummy.lookAt(pos.clone().add(normal));
+                        dummy.scale.set(1.0, 1.0, 0.85);
+                        dummy.updateMatrix();
+                        matrices.push(dummy.matrix.clone());
+                    }
+                }
+
+                const dotGeo = new THREE.SphereGeometry(0.022, 10, 10);
+                const instancedDots = new THREE.InstancedMesh(dotGeo, gripDotMat, matrices.length);
+                matrices.forEach((m, idx) => instancedDots.setMatrixAt(idx, m));
+                instancedDots.instanceMatrix.needsUpdate = true;
+                padGroup.add(instancedDots);
+
+                return padGroup;
+            }
+
+            bottleGroup.add(buildExternalHourglassGripPad(-1));
+            bottleGroup.add(buildExternalHourglassGripPad(1));
+
+            // C. Alas Karet Anti-Slip Lebar Espresso-Charcoal (#3A3133, radius = 1.64)
+            const baseRubberMesh = new THREE.Mesh(
+                new THREE.CylinderGeometry(1.60, 1.64, 0.24, 64),
+                espressoRubberMat
+            );
+            baseRubberMesh.position.y = -2.28;
+            baseRubberMesh.castShadow = true;
+            baseRubberMesh.receiveShadow = true;
+            bottleGroup.add(baseRubberMesh);
+
+            // Alur cincin karet anti-geser di bagian bawah alas (terlihat dari kamera Alas Anti-Slip)
+            [0.62, 1.02, 1.38].forEach((ringR) => {
+                const underRing = new THREE.Mesh(
+                    new THREE.TorusGeometry(ringR, 0.026, 12, 48),
+                    new THREE.MeshStandardMaterial({ color: 0x221b1d, roughness: 0.95 })
+                );
+                underRing.rotation.x = Math.PI / 2;
+                underRing.position.y = -2.402;
+                bottleGroup.add(underRing);
+            });
+
+            // D. Sistem Reservoir Airless Dinding Lurus Diperpanjang hingga y = 2.60 & Piringan Piston Mentok Atas
+            const FLUID_MAX_HEIGHT = 4.54; // Dari y = -1.94 hingga y = 2.60
+            const innerTubeMesh = new THREE.Mesh(
+                new THREE.CylinderGeometry(1.35, 1.35, FLUID_MAX_HEIGHT, 48, 1, true),
+                new THREE.MeshPhysicalMaterial({
+                    color: 0xffffff,
+                    transparent: true,
+                    opacity: 0.24,
+                    roughness: 0.12,
+                    side: THREE.DoubleSide
+                })
+            );
+            innerTubeMesh.position.y = 0.33;
+            bottleGroup.add(innerTubeMesh);
+
+            const lotionColumnMesh = new THREE.Mesh(
+                new THREE.CylinderGeometry(1.33, 1.33, FLUID_MAX_HEIGHT, 48),
+                lotionFluidMat
+            );
+            lotionColumnMesh.position.y = 0.33;
+            bottleGroup.add(lotionColumnMesh);
+
+            const pistonGroup = new THREE.Group();
+            const pistonCore = new THREE.Mesh(
+                new THREE.CylinderGeometry(1.34, 1.34, 0.18, 48),
+                matteWhiteMat
+            );
+            const sealTop = new THREE.Mesh(
+                new THREE.TorusGeometry(1.338, 0.034, 12, 48),
+                gripSiliconeMat
+            );
+            sealTop.rotation.x = Math.PI / 2;
+            sealTop.position.y = 0.058;
+
+            const sealBottom = sealTop.clone();
+            sealBottom.position.y = -0.058;
+
+            pistonGroup.add(pistonCore, sealTop, sealBottom);
+
+            // Pelat piston airless dapat naik mentok rapat sampai y = 2.50 (permukaan atas piston mencapai y = 2.59)
+            const PISTON_MIN_Y = -1.90;
+            const PISTON_MAX_Y = 2.50;
+            pistonGroup.position.y = PISTON_MIN_Y;
+            pistonGroup.userData.targetY = PISTON_MIN_Y;
+            bottleGroup.add(pistonGroup);
+
+            // E. Kunci Geser Satu Jari ("Kunci Geser") pada Bahu Depan Atas Lancip (+Z, y = 2.66, z = 1.12)
+            const collarRing = new THREE.Mesh(
+                new THREE.CylinderGeometry(0.78, 0.80, 0.24, 48),
+                glossyPinkPumpMat
+            );
+            collarRing.position.y = 2.84;
+            collarRing.castShadow = true;
+            bottleGroup.add(collarRing);
+
+            const slidingLockGroup = new THREE.Group();
+            slidingLockGroup.position.set(0, 2.66, 1.12);
+            slidingLockGroup.rotation.x = -0.14;
+            bottleGroup.add(slidingLockGroup);
+
+            const lockBaseCradle = new THREE.Mesh(
+                new THREE.CylinderGeometry(0.62, 0.66, 0.15, 36),
+                new THREE.MeshPhysicalMaterial({ color: 0xf4a0b5, roughness: 0.25, clearcoat: 0.6 })
+            );
+            lockBaseCradle.rotation.x = Math.PI / 2;
+            lockBaseCradle.scale.set(1.26, 1.0, 0.68);
+            lockBaseCradle.position.z = -0.02;
+            slidingLockGroup.add(lockBaseCradle);
+
+            function buildStadiumOvalMesh(w, h, depth, mat) {
+                const shape = new THREE.Shape();
+                const rad = h / 2;
+                const flat = Math.max(0.01, w - h);
+                shape.absarc(-flat / 2, 0, rad, Math.PI / 2, Math.PI * 1.5, false);
+                shape.absarc(flat / 2, 0, rad, -Math.PI / 2, Math.PI / 2, false);
+                shape.closePath();
+
+                const geo = new THREE.ExtrudeGeometry(shape, {
+                    depth: depth,
+                    bevelEnabled: true,
+                    bevelSegments: 5,
+                    steps: 1,
+                    bevelSize: 0.025,
+                    bevelThickness: 0.025
+                });
+                geo.center();
+                return new THREE.Mesh(geo, mat);
+            }
+
+            const ovalHousingMesh = buildStadiumOvalMesh(1.04, 0.52, 0.14, matteWhiteMat);
+            ovalHousingMesh.castShadow = true;
+            ovalHousingMesh.userData.clickAction = 'lock';
+            slidingLockGroup.add(ovalHousingMesh);
+
+            const ovalSlotMesh = buildStadiumOvalMesh(0.86, 0.36, 0.04,
+                new THREE.MeshStandardMaterial({ color: 0xe7d6dc, roughness: 0.5 })
+            );
+            ovalSlotMesh.position.z = 0.062;
+            ovalSlotMesh.userData.clickAction = 'lock';
+            slidingLockGroup.add(ovalSlotMesh);
+
+            // Blok indikator merah-crimson (#D6456B) di sisi kanan celah
+            const crimsonPillGeo = new THREE.CylinderGeometry(0.13, 0.13, 0.06, 24);
+            crimsonPillGeo.rotateX(Math.PI / 2);
+            crimsonPillGeo.scale(0.95, 1.15, 1.0);
+            const crimsonPillMesh = new THREE.Mesh(crimsonPillGeo, crimsonIndicatorMat);
+            crimsonPillMesh.position.set(0.23, 0, 0.080);
+            crimsonPillMesh.userData.clickAction = 'lock';
+            slidingLockGroup.add(crimsonPillMesh);
+
+            const thumbSliderGroup = new THREE.Group();
+            const SLIDER_LEFT_X = -0.15;  // TERBUKA (indikator merah terlihat)
+            const SLIDER_RIGHT_X = 0.16;  // TERKUNCI (menutupi indikator merah)
+            thumbSliderGroup.position.set(SLIDER_LEFT_X, 0, 0.098);
+            thumbSliderGroup.userData.targetX = SLIDER_LEFT_X;
+            slidingLockGroup.add(thumbSliderGroup);
+
+            const thumbSliderCap = buildStadiumOvalMesh(0.55, 0.32, 0.068, matteWhiteMat);
+            thumbSliderCap.castShadow = true;
+            thumbSliderCap.userData.clickAction = 'lock';
+            thumbSliderGroup.add(thumbSliderCap);
+
+            const ridgeMat = new THREE.MeshStandardMaterial({ color: 0xd8c2c9, roughness: 0.45 });
+            [-0.055, 0, 0.055].forEach((rx) => {
+                const rib = new THREE.Mesh(new THREE.BoxGeometry(0.019, 0.20, 0.025), ridgeMat);
+                rib.position.set(rx, 0, 0.050);
+                rib.userData.clickAction = 'lock';
+                thumbSliderGroup.add(rib);
+            });
+
+            // Baut pengunci internal poros pompa
+            const shaftLockBolt = new THREE.Mesh(
+                new THREE.BoxGeometry(0.38, 0.09, 0.44),
+                crimsonIndicatorMat
+            );
+            shaftLockBolt.position.set(-0.46, 3.02, 0.10);
+            shaftLockBolt.userData.targetX = -0.46;
+            bottleGroup.add(shaftLockBolt);
+
+            // F. HOOK-SHAPED PUMP GLOSSY VIBRANT MAGENTA-PINK (#DB2187) DENGAN TATAKAN BAWAH TETAP LEBAR (3.35 x 2.40)
+            const hookPumpGroup = new THREE.Group();
+            bottleGroup.add(hookPumpGroup);
+
+            const pumpShaft = new THREE.Mesh(
+                new THREE.CylinderGeometry(0.30, 0.30, 0.44, 32),
+                glossyPinkPumpMat
+            );
+            pumpShaft.position.y = 3.16;
+            pumpShaft.userData.clickAction = 'pump';
+            hookPumpGroup.add(pumpShaft);
+
+            // Fungsi pembentuk platform pelana cekung ergonomis (concave saddle) dengan rusuk taktil
+            function createContouredPressPlatform(width, depth, thickness, saddleCurveStrength = 0.095) {
+                const shape = new THREE.Shape();
+                const r = depth / 2;
+                const flat = Math.max(0.01, width - depth);
+                shape.absarc(-flat / 2, 0, r, Math.PI / 2, Math.PI * 1.5, false);
+                shape.absarc(flat / 2, 0, r, -Math.PI / 2, Math.PI / 2, false);
+                shape.closePath();
+
+                const geo = new THREE.ExtrudeGeometry(shape, {
+                    depth: thickness,
+                    bevelEnabled: true,
+                    bevelSegments: 6,
+                    steps: 1,
+                    bevelSize: 0.055,
+                    bevelThickness: 0.045
+                });
+                geo.center();
+                geo.rotateX(Math.PI / 2);
+
+                // Kontur pelana cekung: tepi kiri & kanan sedikit naik menahan posisi siku agar tidak meleset
+                const pos = geo.attributes.position;
+                for (let i = 0; i < pos.count; i++) {
+                    const vx = pos.getX(i);
+                    const vy = pos.getY(i);
+                    const vz = pos.getZ(i);
+                    const normX = vx / (width / 2);
+                    const normZ = vz / (depth / 2);
+                    const saddleLift = saddleCurveStrength * Math.pow(normX, 2) + 0.025 * Math.pow(normZ, 2);
+                    pos.setY(i, vy + saddleLift);
+                }
+                geo.computeVertexNormals();
+                return geo;
+            }
+
+            // 1) Tatakan Tekan Bawah Tetap Lebar (Width = 3.35, Depth = 2.40) di dasar rongga hook — Glossy #DB2187
+            const wideLowerPressPlate = new THREE.Mesh(
+                createContouredPressPlatform(3.35, 2.40, 0.16, 0.095),
+                glossyPinkPumpMat
+            );
+            wideLowerPressPlate.position.set(0, 3.38, 0.18);
+            wideLowerPressPlate.castShadow = true;
+            wideLowerPressPlate.receiveShadow = true;
+            wideLowerPressPlate.userData.clickAction = 'pump';
+            hookPumpGroup.add(wideLowerPressPlate);
+
+            // 5 Rusuk Taktil Anti-Selip (#B0176B) pada Tatakan Tekan Bawah Lebar
+            const lowerRibMat = new THREE.MeshStandardMaterial({ color: 0xb0176b, roughness: 0.30, metalness: 0.03 });
+            [-0.56, -0.28, 0, 0.28, 0.56].forEach((rx) => {
+                const rib = new THREE.Mesh(
+                    new THREE.CylinderGeometry(0.018, 0.018, 1.45, 12),
+                    lowerRibMat
+                );
+                rib.rotation.x = Math.PI / 2;
+                rib.position.set(rx, 3.475 + 0.095 * Math.pow(rx / 1.675, 2), 0.18);
+                rib.userData.clickAction = 'pump';
+                hookPumpGroup.add(rib);
+            });
+
+            // 2) Lengkungan Kait Pita Lebar Berkesinambungan (Ribbon Hook-Shaped Pump seperti gambar referensi)
+            function createContinuousRibbonHookGeometry() {
+                const hookShape = new THREE.Shape();
+                // Jalur penampang samping (x = Z dunia, y = Y dunia)
+                hookShape.moveTo(-0.15, 3.41);
+                hookShape.lineTo(-0.68, 3.41);
+                // Lengkungan sudut dalam bawah-belakang (radius 0.32)
+                hookShape.absarc(-0.68, 3.73, 0.32, -Math.PI / 2, Math.PI, true);
+                // Tiang belakang vertikal
+                hookShape.lineTo(-1.00, 4.66);
+                // Lengkungan sudut dalam atas-belakang (radius 0.32)
+                hookShape.absarc(-0.68, 4.66, 0.32, Math.PI, Math.PI / 2, true);
+                // Lengan tudung atas mengarah ke depan
+                hookShape.lineTo(0.56, 4.98);
+                // Ujung depan tudung atas membulat halus (radius 0.065)
+                hookShape.absarc(0.56, 5.045, 0.065, -Math.PI / 2, Math.PI / 2, false);
+                // Permukaan luar atas tudung kembali ke belakang
+                hookShape.lineTo(-0.68, 5.11);
+                // Lengkungan sudut luar atas-belakang (radius 0.45)
+                hookShape.absarc(-0.68, 4.66, 0.45, Math.PI / 2, Math.PI, false);
+                // Punggung luar vertikal
+                hookShape.lineTo(-1.13, 3.73);
+                // Lengkungan sudut luar bawah-belakang (radius 0.45)
+                hookShape.absarc(-0.68, 3.73, 0.45, Math.PI, Math.PI * 1.5, false);
+                // Kembali menyatu dengan bagian belakang tatakan bawah lebar
+                hookShape.lineTo(-0.15, 3.28);
+                hookShape.closePath();
+
+                const geo = new THREE.ExtrudeGeometry(hookShape, {
+                    depth: 1.24,
+                    bevelEnabled: true,
+                    bevelSegments: 4,
+                    steps: 1,
+                    bevelSize: 0.032,
+                    bevelThickness: 0.045
+                });
+                // Pusatkan ekstrusi di sumbu Z lokal sebelum rotasi ke sumbu X dunia
+                geo.translate(0, 0, -0.62);
+                geo.rotateY(-Math.PI / 2);
+                geo.computeVertexNormals();
+                return geo;
+            }
+
+            const ribbonHookMesh = new THREE.Mesh(
+                createContinuousRibbonHookGeometry(),
+                glossyPinkPumpMat
+            );
+            ribbonHookMesh.castShadow = true;
+            ribbonHookMesh.receiveShadow = true;
+            ribbonHookMesh.userData.clickAction = 'pump';
+            hookPumpGroup.add(ribbonHookMesh);
+
+            // 3) Nosel pendek vertikal menghadap ke bawah di bawah ujung depan tudung hook atas
+            const nozzleMesh = new THREE.Mesh(
+                new THREE.CylinderGeometry(0.085, 0.12, 0.15, 24),
+                glossyPinkPumpMat
+            );
+            nozzleMesh.position.set(0, 4.94, 0.44);
+            nozzleMesh.userData.clickAction = 'pump';
+            hookPumpGroup.add(nozzleMesh);
+
+            // Tetesan lotion & genangan krim pada tatakan tekan bawah lebar
+            const dropletMesh = new THREE.Mesh(
+                new THREE.SphereGeometry(0.115, 20, 20),
+                lotionFluidMat
+            );
+            dropletMesh.scale.set(0.85, 1.38, 0.85);
+            dropletMesh.visible = false;
+            bottleGroup.add(dropletMesh);
+
+            const puddleMesh = new THREE.Mesh(
+                new THREE.CylinderGeometry(0.26, 0.30, 0.042, 32),
+                lotionFluidMat
+            );
+            puddleMesh.position.set(0, 3.49, 0.44);
+            puddleMesh.visible = false;
+            hookPumpGroup.add(puddleMesh);
+
+            // MODEL 3D LENGAN TERTEKUK DI SIKU ("SIMULASI SIKU")
+            const elbowArmGroup = new THREE.Group();
+            const skinMat = new THREE.MeshPhysicalMaterial({
+                color: 0xf1c2ad,
+                roughness: 0.48,
+                clearcoat: 0.12,
+                transparent: true,
+                opacity: 0.90
+            });
+            const sleeveMat = new THREE.MeshStandardMaterial({
+                color: 0xf7e5ea,
+                roughness: 0.72,
+                transparent: true,
+                opacity: 0.92
+            });
+
+            // Titik kontak ujung siku tepat menyentuh permukaan atas Tatakan Tekan Bawah Lebar (y = 3.74)
+            const elbowJointCenter = new THREE.Vector3(-0.18, 3.74, 0.22);
+
+            const elbowCapMesh = new THREE.Mesh(
+                new THREE.SphereGeometry(0.30, 24, 24),
+                skinMat
+            );
+            elbowCapMesh.scale.set(1.06, 0.86, 1.10);
+            elbowCapMesh.position.copy(elbowJointCenter);
+            elbowArmGroup.add(elbowCapMesh);
+
+            const upperArmCurve = new THREE.LineCurve3(
+                elbowJointCenter,
+                new THREE.Vector3(1.58, 5.45, 0.92)
+            );
+            const upperArmMesh = new THREE.Mesh(
+                new THREE.TubeGeometry(upperArmCurve, 12, 0.32, 20, false),
+                skinMat
+            );
+            elbowArmGroup.add(upperArmMesh);
+
+            const sleeveCurve = new THREE.LineCurve3(
+                new THREE.Vector3(0.72, 4.62, 0.58),
+                new THREE.Vector3(1.66, 5.54, 0.96)
+            );
+            const sleeveMesh = new THREE.Mesh(
+                new THREE.TubeGeometry(sleeveCurve, 10, 0.36, 20, false),
+                sleeveMat
+            );
+            elbowArmGroup.add(sleeveMesh);
+
+            const forearmCurve = new THREE.LineCurve3(
+                elbowJointCenter,
+                new THREE.Vector3(-1.72, 4.48, 1.28)
+            );
+            const forearmMesh = new THREE.Mesh(
+                new THREE.TubeGeometry(forearmCurve, 12, 0.26, 20, false),
+                skinMat
+            );
+            elbowArmGroup.add(forearmMesh);
+
+            const fistMesh = new THREE.Mesh(
+                new THREE.SphereGeometry(0.28, 18, 18),
+                skinMat
+            );
+            fistMesh.scale.set(1.15, 0.92, 0.88);
+            fistMesh.position.set(-1.82, 4.54, 1.34);
+            elbowArmGroup.add(fistMesh);
+
+            elbowArmGroup.visible = false;
+            bottleGroup.add(elbowArmGroup);
+
+            // G. SISI BELAKANG (-Z) — TEMPELAN QR CODE & BRAILLE TIMBUL MELENGKUNG RAPAT PADA BODY BOTOL
+            const curvedBackGroup = new THREE.Group();
+            bottleGroup.add(curvedBackGroup);
+
+            function createCurvedBackStickerTexture() {
+                const canvas = document.createElement('canvas');
+                canvas.width = 512;
+                canvas.height = 860;
+                const ctx = canvas.getContext('2d');
+
+                // Latar stiker off-white kontras tinggi
+                ctx.fillStyle = '#FAF6F8';
+                ctx.fillRect(0, 0, 512, 860);
+
+                // Bingkai tepi stiker kontras
+                ctx.strokeStyle = '#2D2427';
+                ctx.lineWidth = 14;
+                ctx.strokeRect(7, 7, 498, 846);
+
+                // Header "QR AUDIO • TUNANETRA"
+                ctx.fillStyle = '#DB2187';
+                ctx.font = '800 30px "Plus Jakarta Sans", "Inter", sans-serif';
+                ctx.textAlign = 'center';
+                ctx.fillText('QR AUDIO • TUNANETRA', 256, 72);
+
+                // Garis pemisah tipis di bawah area Braille
+                ctx.strokeStyle = 'rgba(219, 33, 135, 0.35)';
+                ctx.lineWidth = 3;
+                ctx.beginPath();
+                ctx.moveTo(46, 336);
+                ctx.lineTo(466, 336);
+                ctx.stroke();
+
+                // Bingkai QR Code di bagian bawah stiker
+                const qrSize = 340;
+                const qrX = (512 - qrSize) / 2;
+                const qrY = 385;
+
+                ctx.fillStyle = '#FFFFFF';
+                ctx.fillRect(qrX, qrY, qrSize, qrSize);
+                ctx.strokeStyle = '#DB2187';
+                ctx.lineWidth = 12;
+                ctx.strokeRect(qrX, qrY, qrSize, qrSize);
+
+                // Pola QR Code Kontras Tinggi
+                const drawFinder = (fx, fy) => {
+                    ctx.fillStyle = '#2D2427';
+                    ctx.fillRect(fx, fy, 74, 74);
+                    ctx.fillStyle = '#FFFFFF';
+                    ctx.fillRect(fx + 13, fy + 13, 48, 48);
+                    ctx.fillStyle = '#DB2187';
+                    ctx.fillRect(fx + 25, fy + 25, 24, 24);
+                };
+                drawFinder(qrX + 24, qrY + 24);
+                drawFinder(qrX + qrSize - 98, qrY + 24);
+                drawFinder(qrX + 24, qrY + qrSize - 98);
+
+                ctx.fillStyle = '#2D2427';
+                for (let i = 0; i < 110; i++) {
+                    const mx = qrX + 114 + ((i * 37) % 192);
+                    const my = qrY + 28 + ((i * 53) % 276);
+                    ctx.fillRect(mx, my, 16, 16);
+                }
+
+                ctx.fillStyle = '#564348';
+                ctx.font = '700 22px "Plus Jakarta Sans", "Inter", sans-serif';
+                ctx.fillText('PINDAI UNTUK PANDUAN SUARA', 256, 782);
+
+                const tex = new THREE.CanvasTexture(canvas);
+                tex.anisotropy = 8;
+                return tex;
+            }
+
+            // Segmen CylinderGeometry terbuka menempel 100% rapat pada dinding belakang botol (radius = 1.483)
+            const STICKER_CENTER_Y = 0.26;
+            const STICKER_HEIGHT = 2.50;
+            const STICKER_THETA_LEN = 0.98;
+            const STICKER_THETA_START = Math.PI - STICKER_THETA_LEN / 2;
+
+            const curvedStickerBacking = new THREE.Mesh(
+                new THREE.CylinderGeometry(
+                    1.483,
+                    1.483,
+                    STICKER_HEIGHT,
+                    48,
+                    1,
+                    true,
+                    STICKER_THETA_START,
+                    STICKER_THETA_LEN
+                ),
+                new THREE.MeshStandardMaterial({
+                    color: 0x2d2427,
+                    roughness: 0.45,
+                    side: THREE.DoubleSide
+                })
+            );
+            curvedStickerBacking.position.y = STICKER_CENTER_Y;
+            curvedStickerBacking.userData.clickAction = 'qr';
+            curvedBackGroup.add(curvedStickerBacking);
+
+            const curvedStickerMesh = new THREE.Mesh(
+                new THREE.CylinderGeometry(
+                    1.485,
+                    1.485,
+                    STICKER_HEIGHT,
+                    48,
+                    1,
+                    true,
+                    STICKER_THETA_START,
+                    STICKER_THETA_LEN
+                ),
+                new THREE.MeshPhysicalMaterial({
+                    map: createCurvedBackStickerTexture(),
+                    roughness: 0.32,
+                    metalness: 0.02,
+                    clearcoat: 0.25,
+                    transparent: true,
+                    alphaTest: 0.08,
+                    side: THREE.DoubleSide
+                })
+            );
+            curvedStickerMesh.position.y = STICKER_CENTER_Y;
+            curvedStickerMesh.userData.clickAction = 'qr';
+            curvedBackGroup.add(curvedStickerMesh);
+
+            // Garis laser pemindai QR melengkung rapat di atas permukaan QR belakang (radius = 1.491)
+            const qrLaserMesh = new THREE.Mesh(
+                new THREE.CylinderGeometry(
+                    1.491,
+                    1.491,
+                    0.042,
+                    36,
+                    1,
+                    true,
+                    Math.PI - 0.32,
+                    0.64
+                ),
+                new THREE.MeshBasicMaterial({
+                    color: 0xff2e6e,
+                    transparent: true,
+                    opacity: 0.94,
+                    side: THREE.DoubleSide
+                })
+            );
+            qrLaserMesh.position.y = -0.25;
+            qrLaserMesh.visible = false;
+            curvedBackGroup.add(qrLaserMesh);
+
+            // Titik-titik Braille 3D Timbul ("LABORE" dan "LOTION") menempel rapat mengikuti koordinat silindris pada r = 1.492
+            const brailleSphere = new THREE.SphereGeometry(0.021, 10, 10);
+            const brailleInkMat = new THREE.MeshStandardMaterial({ color: 0x2d2427, roughness: 0.30 });
+            const BRAILLE_DOTS = {
+                L: [[0, 0], [0, 1], [0, 2]],
+                A: [[0, 0]],
+                B: [[0, 0], [0, 1]],
+                O: [[0, 0], [0, 2], [1, 1]],
+                R: [[0, 0], [0, 1], [0, 2], [1, 1]],
+                E: [[0, 0], [1, 1]],
+                T: [[0, 1], [0, 2], [1, 0], [1, 1]],
+                I: [[0, 1], [1, 0]],
+                N: [[0, 0], [0, 1], [0, 2], [1, 0], [1, 1]]
+            };
+
+            function renderCurvedBrailleRow(word, yPos) {
+                const rBraille = 1.492;
+                const charAngleStep = 0.112;
+                const dotAngleStep = 0.034;
+                const startTheta = Math.PI + ((word.length - 1) * charAngleStep) / 2 + 0.015;
+
+                word.split('').forEach((ch, idx) => {
+                    const baseTheta = startTheta - idx * charAngleStep;
+                    (BRAILLE_DOTS[ch] || []).forEach(([c, r]) => {
+                        const theta = baseTheta - c * dotAngleStep;
+                        const y = yPos - r * 0.056;
+                        const dot = new THREE.Mesh(brailleSphere, brailleInkMat);
+                        dot.position.set(
+                            rBraille * Math.sin(theta),
+                            y,
+                            rBraille * Math.cos(theta)
+                        );
+                        dot.userData.clickAction = 'qr';
+                        curvedBackGroup.add(dot);
+                    });
+                });
+            }
+            renderCurvedBrailleRow('LABORE', 1.10);
+            renderCurvedBrailleRow('LOTION', 0.84);
+
+            // 6. State Interaktif & Raycasting Klik 3D Langsung
+            const appState = {
+                bottleSizeMl: 250,
+                targetScaleXZ: 1.0,
+                targetScaleY: 1.0,
+                currentScaleXZ: 1.0,
+                currentScaleY: 1.0,
+                isLocked: false,
+                isXray: false,
+                lotionPct: 100,
+                isPumping: false,
+                pumpStartTime: 0,
+                isScanningQr: false,
+                qrScanStart: 0
+            };
+
+            const raycaster = new THREE.Raycaster();
+            const pointerNDC = new THREE.Vector2();
+
+            renderer.domElement.addEventListener('pointerup', (e) => {
+                const dist = Math.hypot(e.clientX - pointerDownPos.x, e.clientY - pointerDownPos.y);
+                if (dist > 6) return;
+
+                const rect = renderer.domElement.getBoundingClientRect();
+                pointerNDC.x = ((e.clientX - rect.left) / rect.width) * 2 - 1;
+                pointerNDC.y = -((e.clientY - rect.top) / rect.height) * 2 + 1;
+
+                raycaster.setFromCamera(pointerNDC, camera);
+                const hits = raycaster.intersectObjects(bottleGroup.children, true);
+                for (let i = 0; i < hits.length; i++) {
+                    const act = hits[i].object.userData.clickAction;
+                    if (act === 'lock') {
+                        toggleSlidingLock();
+                        break;
+                    } else if (act === 'pump') {
+                        triggerElbowPumpStroke();
+                        break;
+                    } else if (act === 'qr') {
+                        triggerQrAudioReadout();
+                        break;
+                    }
+                }
+            });
+
+            function playClickSound(f1 = 760, f2 = 240, dur = 0.055) {
+                try {
+                    const AC = window.AudioContext || window.webkitAudioContext;
+                    const ctx = new AC();
+                    const osc = ctx.createOscillator();
+                    const gain = ctx.createGain();
+                    osc.type = 'triangle';
+                    osc.frequency.setValueAtTime(f1, ctx.currentTime);
+                    osc.frequency.exponentialRampToValueAtTime(f2, ctx.currentTime + dur);
+                    gain.gain.setValueAtTime(0.22, ctx.currentTime);
+                    gain.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + dur);
+                    osc.connect(gain);
+                    gain.connect(ctx.destination);
+                    osc.start();
+                    osc.stop(ctx.currentTime + dur);
+                } catch (e) {}
+            }
+
+            let toastTimer = null;
+            function showToast(msg, variant = 'normal') {
+                const box = document.getElementById('toast-box');
+                const pill = document.getElementById('toast-pill');
+                const icon = document.getElementById('toast-icon');
+                document.getElementById('toast-text').textContent = msg;
+
+                pill.className = 'px-4 py-2.5 rounded-2xl shadow-lg border text-xs sm:text-sm font-bold flex items-center gap-2 ';
+                if (variant === 'locked') {
+                    pill.className += 'bg-[#DB2187] text-white border-white';
+                    icon.textContent = '🔒';
+                } else {
+                    pill.className += 'bg-[#2D2427] text-white border-[#F291A8]';
+                    icon.textContent = '✨';
+                }
+
+                box.classList.remove('opacity-0', '-translate-y-3');
+                box.classList.add('opacity-100', 'translate-y-0');
+                clearTimeout(toastTimer);
+                toastTimer = setTimeout(() => {
+                    box.classList.add('opacity-0', '-translate-y-3');
+                    box.classList.remove('opacity-100', 'translate-y-0');
+                }, 3400);
+            }
+
+            // Aksi 1: Toggle Kunci Geser Satu Jari
+            function toggleSlidingLock() {
+                appState.isLocked = !appState.isLocked;
+                playClickSound(appState.isLocked ? 620 : 880, appState.isLocked ? 180 : 280, 0.055);
+
+                const lockBtn = document.getElementById('btn-lock');
+                const lockIcon = document.getElementById('lock-icon');
+                const lockLabel = document.getElementById('lock-btn-label');
+                const hudLockPill = document.getElementById('hud-lock-pill');
+
+                if (appState.isLocked) {
+                    thumbSliderGroup.userData.targetX = SLIDER_RIGHT_X;
+                    shaftLockBolt.userData.targetX = 0.0;
+                    lockIcon.textContent = '🔒';
+                    lockLabel.textContent = 'Kunci Geser: TERKUNCI';
+                    lockBtn.classList.add('bg-[#DB2187]', 'text-white');
+                    lockBtn.classList.remove('bg-white', 'text-[#2D2427]');
+                    hudLockPill.textContent = 'Kunci: TERKUNCI';
+                    hudLockPill.className = 'px-2 py-0.5 rounded-full bg-rose-100 text-[#DB2187] font-bold';
+                    showToast('Kunci Geser digeser ke kanan (TERKUNCI) — Aman dibawa di dalam tas.', 'locked');
+                } else {
+                    thumbSliderGroup.userData.targetX = SLIDER_LEFT_X;
+                    shaftLockBolt.userData.targetX = -0.46;
+                    lockIcon.textContent = '🔓';
+                    lockLabel.textContent = 'Kunci Geser: TERBUKA';
+                    lockBtn.classList.remove('bg-[#DB2187]', 'text-white');
+                    lockBtn.classList.add('bg-white', 'text-[#2D2427]');
+                    hudLockPill.textContent = 'Kunci: TERBUKA';
+                    hudLockPill.className = 'px-2 py-0.5 rounded-full bg-emerald-100 text-emerald-800 font-bold';
+                    showToast('Kunci Geser digeser ke kiri (TERBUKA) — Tatakan bawah lebar siap ditekan siku.');
+                }
+            }
+
+            // Aksi 2: Tekan Pump dengan Simulasi Siku
+            function triggerElbowPumpStroke() {
+                if (appState.isLocked) {
+                    playClickSound(200, 110, 0.09);
+                    showToast('Kunci Geser sedang TERKUNCI — geser ke kiri dengan satu jari untuk membuka!', 'locked');
+                    hookPumpGroup.position.y = -0.05;
+                    hookPumpGroup.rotation.z = 0.03;
+                    setTimeout(() => { hookPumpGroup.position.y = 0; hookPumpGroup.rotation.z = -0.03; }, 75);
+                    setTimeout(() => { hookPumpGroup.rotation.z = 0; }, 150);
+                    return;
+                }
+
+                if (appState.lotionPct <= 0) {
+                    showToast(`Isi ${appState.bottleSizeMl} ml telah habis terpakai (0% sisa)! Klik "Reset Isi (100%)" untuk mencoba lagi.`);
+                    return;
+                }
+
+                if (appState.isPumping) return;
+
+                appState.isPumping = true;
+                appState.pumpStartTime = performance.now();
+                playClickSound(440, 175, 0.08);
+
+                const stepPct = appState.bottleSizeMl === 1000 ? 5 : 10;
+                appState.lotionPct = Math.max(0, appState.lotionPct - stepPct);
+                updateVolumeHUD();
+
+                if (appState.lotionPct === 0) {
+                    showToast(`${appState.bottleSizeMl} ml habis terpakai sempurna! Pelat piston airless mentok hingga puncak dinding lurus (0% sisa).`);
+                }
+            }
+
+            function updateVolumeHUD() {
+                const ml = Math.round((appState.bottleSizeMl * appState.lotionPct) / 100);
+                const rise = 100 - appState.lotionPct;
+                document.getElementById('volume-label').textContent = `${ml} ml (${appState.lotionPct}%)`;
+                document.getElementById('volume-bar').style.width = `${appState.lotionPct}%`;
+                document.getElementById('piston-status').textContent = `Piston Airless: ${rise}%`;
+
+                pistonGroup.userData.targetY = PISTON_MIN_Y + (PISTON_MAX_Y - PISTON_MIN_Y) * (rise / 100);
+            }
+
+            // Aksi Ganti Ukuran Kemasan: 250 ml vs 1000 ml (1 L)
+            function setBottleSize(sizeMl) {
+                if (appState.bottleSizeMl === sizeMl) return;
+                appState.bottleSizeMl = sizeMl;
+
+                const isOneLiter = sizeMl === 1000;
+                appState.targetScaleXZ = isOneLiter ? 1.34 : 1.0;
+                appState.targetScaleY = isOneLiter ? 1.38 : 1.0;
+
+                // Perbarui tekstur label depan botol
+                const oldMap = bottleShellMat.map;
+                bottleShellMat.map = createCleanFrontLabelTexture(isOneLiter ? '1000 ml • 1 L' : '250 ml');
+                bottleShellMat.needsUpdate = true;
+                if (oldMap) oldMap.dispose();
+
+                // Perbarui UI HUD & tombol pemilih ukuran
+                document.getElementById('hud-title').textContent = isOneLiter
+                    ? 'LABORÉ Inclusive Airless 1000 ml (1 L)'
+                    : 'LABORÉ Inclusive Airless 250 ml';
+                document.getElementById('size-badge').textContent = isOneLiter
+                    ? 'Jumbo Family / Clinic (1 L)'
+                    : 'Reguler (250 ml)';
+
+                document.querySelectorAll('.size-pill').forEach((btn) => {
+                    const active = Number(btn.dataset.size) === sizeMl;
+                    if (active) {
+                        btn.classList.add('bg-[#DB2187]', 'text-white', 'shadow-sm');
+                        btn.classList.remove('text-[#2D2427]', 'hover:bg-[#DB2187]/10');
+                    } else {
+                        btn.classList.remove('bg-[#DB2187]', 'text-white', 'shadow-sm');
+                        btn.classList.add('text-[#2D2427]', 'hover:bg-[#DB2187]/10');
+                    }
+                });
+
+                updateVolumeHUD();
+                const activePresetBtn = document.querySelector('.cam-pill.ring-2');
+                applyCameraPreset(activePresetBtn ? activePresetBtn.dataset.preset : 'depan', false);
+                playClickSound(isOneLiter ? 520 : 740, isOneLiter ? 340 : 520, 0.07);
+                showToast(isOneLiter
+                    ? 'Beralih ke kemasan besar 1000 ml (1 L) dengan Hook-Pump #DB2187!'
+                    : 'Beralih ke kemasan reguler 250 ml dengan Hook-Pump #DB2187!');
+            }
+
+            // Aksi 3: Mode X-Ray Airless (opacity 0.26)
+            function setXrayMode(enabled) {
+                appState.isXray = enabled;
+                const btn = document.getElementById('btn-xray');
+                const label = document.getElementById('xray-btn-label');
+
+                if (appState.isXray) {
+                    bottleShellMat.opacity = 0.26;
+                    bottleShellMat.depthWrite = false;
+                    pinkPlasticMat.opacity = 0.26;
+                    pinkPlasticMat.depthWrite = false;
+                    btn.classList.add('bg-[#2D2427]', 'text-[#F291A8]');
+                    btn.classList.remove('bg-white', 'text-[#2D2427]');
+                    label.textContent = 'X-Ray Airless: AKTIF';
+                    showToast('Mode X-Ray Airless Aktif: Piringan piston vakum dapat naik mentok sampai puncak bahu lancip.');
+                } else {
+                    bottleShellMat.opacity = 1.0;
+                    bottleShellMat.depthWrite = true;
+                    pinkPlasticMat.opacity = 1.0;
+                    pinkPlasticMat.depthWrite = true;
+                    btn.classList.remove('bg-[#2D2427]', 'text-[#F291A8]');
+                    btn.classList.add('bg-white', 'text-[#2D2427]');
+                    label.textContent = 'Mode X-Ray Airless';
+                }
+            }
+
+            // Aksi 4: Pindai QR Audio (Sisi Belakang -Z)
+            function triggerQrAudioReadout() {
+                const transcriptPanel = document.getElementById('audio-transcript-panel');
+                const transcriptText = document.getElementById('audio-transcript-text');
+                const qrLabel = document.getElementById('qr-btn-label');
+
+                applyCameraPreset('belakang', false);
+
+                if ('speechSynthesis' in window && window.speechSynthesis.speaking) {
+                    window.speechSynthesis.cancel();
+                    stopQrAudioUI();
+                    return;
+                }
+
+                appState.isScanningQr = true;
+                appState.qrScanStart = performance.now();
+                qrLaserMesh.visible = true;
+                playClickSound(1080, 1440, 0.10);
+
+                const lockDesc = appState.isLocked
+                    ? 'terkunci di posisi kanan. Geser tombol ke kiri dengan satu jari untuk membuka'
+                    : 'terbuka di posisi kiri dan siap digunakan';
+                const mlLeft = Math.round((appState.bottleSizeMl * appState.lotionPct) / 100);
+                const capSpeech = appState.bottleSizeMl === 1000
+                    ? 'seribu mililiter atau satu liter'
+                    : 'dua ratus lima puluh mililiter';
+
+                const scriptText =
+                    `LABORÉ Sensitive Skin Care. GentleBiotic Sensitive Body Lotion, botol airless inklusif kapasitas ${capSpeech}. ` +
+                    `Penanda Braille timbul dan QR Code Audio menempel di bagian belakang botol. ` +
+                    `Status kunci geser saat ini ${lockDesc}. Sisa isi lotion ${mlLeft} mililiter. ` +
+                    `Masukkan siku atau lengan bawah ke rongga hook dan tekan tatakan bawah yang lebar ke bawah.`;
+
+                transcriptText.textContent = scriptText;
+                transcriptPanel.classList.remove('hidden');
+                qrLabel.textContent = 'Hentikan Audio';
+
+                if ('speechSynthesis' in window) {
+                    const utter = new SpeechSynthesisUtterance(scriptText);
+                    utter.lang = 'id-ID';
+                    utter.rate = 0.98;
+                    const voices = window.speechSynthesis.getVoices();
+                    const idVoice = voices.find(v => v.lang && v.lang.toLowerCase().includes('id'));
+                    if (idVoice) utter.voice = idVoice;
+                    utter.onend = stopQrAudioUI;
+                    utter.onerror = stopQrAudioUI;
+                    window.speechSynthesis.speak(utter);
+                }
+            }
+
+            function stopQrAudioUI() {
+                appState.isScanningQr = false;
+                qrLaserMesh.visible = false;
+                document.getElementById('qr-btn-label').textContent = 'Pindai QR Audio';
+            }
+
+            // Aksi 5: Simpan Simulasi Jadi File Website Mandiri (.html)
+            function exportStandaloneWebsite() {
+                try {
+                    const docClone = document.documentElement.cloneNode(true);
+                    const clonedContainer = docClone.querySelector('#canvas-container');
+                    if (clonedContainer) clonedContainer.innerHTML = '';
+                    const fullHtml = '<!DOCTYPE html>\n' + docClone.outerHTML;
+
+                    const blob = new Blob([fullHtml], { type: 'text/html;charset=utf-8' });
+                    const url = URL.createObjectURL(blob);
+                    const a = document.createElement('a');
+                    a.href = url;
+                    a.download = 'LABORE-Inclusive-3D-Prototype.html';
+                    document.body.appendChild(a);
+                    a.click();
+                    document.body.removeChild(a);
+                    setTimeout(() => URL.revokeObjectURL(url), 1500);
+
+                    playClickSound(880, 1180, 0.08);
+                    showToast('File website "LABORE-Inclusive-3D-Prototype.html" berhasil diunduh!');
+                } catch (err) {
+                    showToast('Gagal mengunduh file HTML otomatis.');
+                }
+            }
+
+            // Preset Sudut Kamera Studio (adaptif terhadap ukuran 250 ml vs 1000 ml)
+            function applyCameraPreset(preset, notify = true) {
+                document.querySelectorAll('.cam-pill').forEach((btn) => {
+                    if (btn.dataset.preset === preset) {
+                        btn.classList.add('ring-2', 'ring-[#DB2187]');
+                    } else {
+                        btn.classList.remove('ring-2', 'ring-[#DB2187]');
+                    }
+                });
+
+                const is1L = appState.bottleSizeMl === 1000;
+                const rScale = is1L ? 1.28 : 1.0;
+                const yShift = is1L ? 0.65 : 0.0;
+
+                if (preset === 'depan') {
+                    orbitState.targetTheta = 0.36;
+                    orbitState.targetPhi = 1.28;
+                    orbitState.targetRadius = 10.8 * rScale;
+                    orbitState.targetLookAt.set(0, 0.65 + yShift, 0);
+                } else if (preset === 'samping') {
+                    orbitState.targetTheta = -1.32;
+                    orbitState.targetPhi = 1.24;
+                    orbitState.targetRadius = 9.4 * rScale;
+                    orbitState.targetLookAt.set(0, 1.55 + yShift * 1.25, 0);
+                    if (notify) showToast(`Tampak Samping (${appState.bottleSizeMl} ml): Hook-Shaped Pump #DB2187 dengan Tatakan Tekan Bawah Lebar.`);
+                } else if (preset === 'belakang') {
+                    orbitState.targetTheta = Math.PI;
+                    orbitState.targetPhi = 1.48;
+                    orbitState.targetRadius = 7.2 * rScale;
+                    orbitState.targetLookAt.set(0, 0.26 + yShift * 0.85, -0.85 * (is1L ? 1.25 : 1.0));
+                    if (notify) showToast(`Sisi Belakang (${appState.bottleSizeMl} ml): Tempelan QR Code Audio & Braille timbul melengkung rapat pada body botol.`);
+                } else if (preset === 'alas') {
+                    orbitState.targetTheta = 0.45;
+                    orbitState.targetPhi = 2.38;
+                    orbitState.targetRadius = 7.4 * (is1L ? 1.18 : 1.0);
+                    orbitState.targetLookAt.set(0, -1.65, 0);
+                    if (notify) showToast('Alas Bawah: Karet Anti-Slip Espresso-Charcoal beralur konsentris agar botol stabil.');
+                }
+            }
+
+            // Bind Semua Tombol UI
+            document.getElementById('btn-size-250').addEventListener('click', () => setBottleSize(250));
+            document.getElementById('btn-size-1000').addEventListener('click', () => setBottleSize(1000));
+            document.getElementById('btn-pump').addEventListener('click', triggerElbowPumpStroke);
+            document.getElementById('btn-lock').addEventListener('click', toggleSlidingLock);
+            document.getElementById('btn-xray').addEventListener('click', () => setXrayMode(!appState.isXray));
+            document.getElementById('btn-qr-audio').addEventListener('click', triggerQrAudioReadout);
+            document.getElementById('btn-export-html').addEventListener('click', exportStandaloneWebsite);
+            document.getElementById('btn-close-transcript').addEventListener('click', () => {
+                if ('speechSynthesis' in window) window.speechSynthesis.cancel();
+                stopQrAudioUI();
+                document.getElementById('audio-transcript-panel').classList.add('hidden');
+            });
+            document.getElementById('btn-refill').addEventListener('click', () => {
+                appState.lotionPct = 100;
+                puddleMesh.visible = false;
+                updateVolumeHUD();
+                playClickSound(640, 440, 0.07);
+                showToast(`Lotion diisi ulang ${appState.bottleSizeMl} ml (100%) & piston airless kembali ke dasar.`);
+            });
+            document.querySelectorAll('.cam-pill').forEach((btn) => {
+                btn.addEventListener('click', () => applyCameraPreset(btn.dataset.preset, true));
+            });
+
+            // 7. Loop Animasi 60 FPS (Termasuk Simulasi Lengan Tertekuk di Siku)
+            const PUMP_DURATION_MS = 1180;
+
+            function renderLoop(now) {
+                requestAnimationFrame(renderLoop);
+
+                updateCameraFromOrbit();
+
+                // Animasi transisi skala kemasan 250 ml <-> 1000 ml (1 L) dengan alas tetap menapak podium
+                appState.currentScaleXZ += (appState.targetScaleXZ - appState.currentScaleXZ) * 0.14;
+                appState.currentScaleY += (appState.targetScaleY - appState.currentScaleY) * 0.14;
+                bottleRootPivot.scale.set(appState.currentScaleXZ, appState.currentScaleY, appState.currentScaleXZ);
+
+                // Animasi geser horizontal Kunci Geser & baut pengunci internal
+                thumbSliderGroup.position.x += (thumbSliderGroup.userData.targetX - thumbSliderGroup.position.x) * 0.22;
+                shaftLockBolt.position.x += (shaftLockBolt.userData.targetX - shaftLockBolt.position.x) * 0.22;
+
+                // Animasi naik Piston Vakum Airless hingga mentok atas (y = 2.50) & penyusutan kolom lotion
+                pistonGroup.position.y += (pistonGroup.userData.targetY - pistonGroup.position.y) * 0.10;
+                const fluidTopY = 2.60;
+                const fluidBotY = pistonGroup.position.y + 0.09;
+                const fluidH = Math.max(0.001, fluidTopY - fluidBotY);
+                lotionColumnMesh.scale.y = fluidH / FLUID_MAX_HEIGHT;
+                lotionColumnMesh.position.y = fluidBotY + fluidH * 0.5;
+                lotionColumnMesh.visible = fluidH > 0.015;
+
+                // Animasi Tekan Siku pada Tatakan Tekan Bawah Lebar (dalam rongga hook)
+                if (appState.isPumping) {
+                    const p = Math.min((now - appState.pumpStartTime) / PUMP_DURATION_MS, 1);
+                    let armSlideZ = 1.85;
+                    let armLiftY = 0.28;
+                    let stroke = 0;
+
+                    if (p < 0.28) {
+                        const t = p / 0.28;
+                        armSlideZ = 1.85 * (1 - t);
+                        armLiftY = 0.28 * (1 - t);
+                    } else if (p < 0.56) {
+                        armSlideZ = 0;
+                        armLiftY = 0;
+                        stroke = Math.sin(((p - 0.28) / 0.28) * (Math.PI / 2));
+                    } else if (p < 0.78) {
+                        armSlideZ = 0;
+                        armLiftY = 0;
+                        stroke = Math.cos(((p - 0.56) / 0.22) * (Math.PI / 2));
+                    } else {
+                        const t = (p - 0.78) / 0.22;
+                        armSlideZ = 1.85 * t;
+                        armLiftY = 0.28 * t;
+                    }
+
+                    const dy = -stroke * 0.38;
+                    hookPumpGroup.position.y = dy;
+
+                    elbowArmGroup.visible = true;
+                    elbowArmGroup.position.set(0, dy + armLiftY, armSlideZ);
+
+                    if (p >= 0.38 && p <= 0.76) {
+                        const dropT = (p - 0.38) / 0.38;
+                        dropletMesh.visible = true;
+                        const y0 = dy + 4.84;
+                        const y1 = dy + 3.52;
+                        dropletMesh.position.set(0, y0 - (y0 - y1) * dropT, 0.44);
+                    } else {
+                        dropletMesh.visible = false;
+                    }
+
+                    if (p >= 0.70) puddleMesh.visible = true;
+
+                    if (p >= 1) {
+                        appState.isPumping = false;
+                        hookPumpGroup.position.y = 0;
+                        elbowArmGroup.visible = false;
+                        dropletMesh.visible = false;
+                    }
+                }
+
+                // Animasi garis laser scanner QR Code belakang
+                if (appState.isScanningQr) {
+                    const tScan = (now - appState.qrScanStart) * 0.0042;
+                    qrLaserMesh.position.y = -0.25 + Math.sin(tScan) * 0.38;
+                }
+
+                renderer.render(scene, camera);
+            }
+
+            window.addEventListener('resize', () => {
+                const w = getWidth();
+                const h = getHeight();
+                camera.aspect = w / h;
+                camera.updateProjectionMatrix();
+                renderer.setSize(w, h);
+            });
+
+            if ('speechSynthesis' in window) {
+                window.speechSynthesis.onvoiceschanged = () => window.speechSynthesis.getVoices();
+            }
+
+            requestAnimationFrame(renderLoop);
+        }
+    </script>
+
+</body></html>
